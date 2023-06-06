@@ -84,7 +84,9 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
-	public static var ratingStuff:Array<Dynamic> = [
+	public static var ratingStuff:Array<Dynamic> = [];
+
+	public static var ratingStuffEN:Array<Dynamic> = [
 		['You Suck!', 0.2], //From 0% to 19%
 		['Shit', 0.4], //From 20% to 39%
 		['Bad', 0.5], //From 40% to 49%
@@ -95,6 +97,19 @@ class PlayState extends MusicBeatState
 		['Great', 0.9], //From 80% to 89%
 		['Sick!', 1], //From 90% to 99%
 		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+	];
+
+	public static var ratingStuffRU:Array<Dynamic> = [
+		["Ты отстой!", 0.2], //От 0% до 19%
+		['Дерьмо', 0.4], //От 20% до 39%
+		["Плохо", 0,5], //От 40% до 49%
+		['Брух', 0.6], //От 50% до 59%
+		['Отстой', 0.69], //От 60% до 68%
+		['Нормально', 0.7], //69%
+		['Хорошо', 0,8], //От 70% до 79%
+		['Отлично', 0.9], //От 80% до 89%
+		['Отпад!', 1], //От 90% до 99%
+		['Идеально!!', 1] //Значение этого параметра на самом деле не используется, поскольку Perfect всегда равно "1".
 	];
 
 	//event variables
@@ -331,6 +346,16 @@ class PlayState extends MusicBeatState
 	{
 		//trace('Playback Rate: ' + playbackRate);
 		Paths.clearStoredMemory();
+
+		//Languages stuff create
+
+		switch(ClientPrefs.language)
+		{
+			case 'ru':
+				ratingStuff = ratingStuffRU;
+			default:
+				ratingStuff = ratingStuffEN;
+		}
 
 		// for lua
 		instance = this;
