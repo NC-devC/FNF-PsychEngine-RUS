@@ -997,7 +997,24 @@ class PlayState extends MusicBeatState
 			dialogueJson = DialogueBoxPsych.parseDialogue(file);
 		}
 
-		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
+		var coolPath:String = "";
+
+		switch(ClientPrefs.language)
+		{
+			case 'ru':
+				coolPath = Paths.txt(songName + '/' + songName + 'Dialogue-ru');
+				if (OpenFlAssets.exists(coolPath)) {
+					coolPath = coolPath;
+				}
+				else
+				{
+					coolPath = Paths.txt(songName + '/' + songName + 'Dialogue');
+				}
+			default:
+				coolPath = Paths.txt(songName + '/' + songName + 'Dialogue');
+		}
+
+		var file:String = coolPath; //Checks for vanilla/Senpai dialogue
 		if (OpenFlAssets.exists(file)) {
 			dialogue = CoolUtil.coolTextFile(file);
 		}

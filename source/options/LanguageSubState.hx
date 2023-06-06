@@ -35,7 +35,7 @@ class LanguageSubState extends BaseOptionsMenu
 		rpcTitle = 'Language Settings Menu'; //for Discord Rich Presence
 
 		var option:Option = new Option('Game language',
-			'Check this if you want to play with\na controller instead of using your Keyboard.',
+			'Select language for game.',
 			'language',
 			'string',
 			'ru',
