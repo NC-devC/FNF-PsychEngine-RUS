@@ -33,6 +33,8 @@ class ClientPrefs {
 	public static var pauseMusic:String = 'Tea Time';
 	public static var checkForUpdates:Bool = true;
 	public static var comboStacking = true;
+
+	public static var language:String = "ru";
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -130,6 +132,8 @@ class ClientPrefs {
 		FlxG.save.data.pauseMusic = pauseMusic;
 		FlxG.save.data.checkForUpdates = checkForUpdates;
 		FlxG.save.data.comboStacking = comboStacking;
+
+		FlxG.save.data.language = language;
 	
 		FlxG.save.flush();
 
@@ -263,6 +267,9 @@ class ClientPrefs {
 		if (FlxG.save.data.checkForUpdates != null)
 		{
 			checkForUpdates = FlxG.save.data.checkForUpdates;
+		}
+		if(FlxG.save.data.language != null) {
+			language = FlxG.save.data.language;
 		}
 		if (FlxG.save.data.comboStacking != null)
 			comboStacking = FlxG.save.data.comboStacking;
