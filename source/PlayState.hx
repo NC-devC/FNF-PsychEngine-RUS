@@ -1003,11 +1003,7 @@ class PlayState extends MusicBeatState
 		{
 			case 'ru':
 				coolPath = Paths.txt(songName + '/' + songName + 'Dialogue-ru');
-				if (OpenFlAssets.exists(coolPath)) {
-					coolPath = coolPath;
-				}
-				else
-				{
+				if (!OpenFlAssets.exists(coolPath)) {
 					coolPath = Paths.txt(songName + '/' + songName + 'Dialogue');
 				}
 			default:
@@ -2273,9 +2269,9 @@ class PlayState extends MusicBeatState
 
 	public function updateScore(miss:Bool = false)
 	{
-		scoreTxt.text = 'Score: ' + songScore
-		+ ' | Misses: ' + songMisses
-		+ ' | Rating: ' + ratingName
+		scoreTxt.text = 'Очки: ' + songScore
+		+ ' | Промахи: ' + songMisses
+		+ ' | Рейтинг: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)

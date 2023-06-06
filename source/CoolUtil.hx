@@ -23,6 +23,11 @@ class CoolUtil
 		'Normal',
 		'Hard'
 	];
+	public static var defaultDifficultiesRus:Array<String> = [
+		'Легко',
+		'Нормально',
+		'Сложно'
+	];
 	public static var defaultDifficulty:String = 'Normal'; //The chart that has no suffix and starting difficulty on Freeplay/Story Mode
 
 	public static var difficulties:Array<String> = [];
@@ -52,7 +57,52 @@ class CoolUtil
 
 	public static function difficultyString():String
 	{
-		return difficulties[PlayState.storyDifficulty].toUpperCase();
+		var diff:String = difficulties[PlayState.storyDifficulty].toUpperCase();
+		return diff;
+	}
+
+	public static function fakeDifficultyString():String
+	{
+		var diff:String = difficulties[PlayState.storyDifficulty].toUpperCase();
+		var returnDiff:String = "NORMAL";
+		var isDefault:Bool = false;
+		switch(diff)
+		{
+			case 'HARD':
+				isDefault = true;
+			case 'NORMAL':
+				isDefault = true;
+			case 'EASY':
+				isDefault = true;
+			default:
+				isDefault = false;
+		}
+
+		if(isDefault)
+		{
+			switch(ClientPrefs.language)
+			{
+				case 'ru':
+					if(diff == "HARD")
+						returnDiff = "СЛОЖНО";
+					if(diff == "NORMAL")
+						returnDiff = "НОРМАЛЬНО";
+					if(diff == "EASY")
+						returnDiff = "ЛЕГКО";
+				default:
+					if(diff == "HARD")
+						returnDiff = "HARD";
+					if(diff == "NORMAL")
+						returnDiff = "NORMAL";
+					if(diff == "EASY")
+						returnDiff = "EASY";
+			}
+		}
+
+		if(isDefault)
+			return returnDiff;
+		else
+			return diff;
 	}
 
 	inline public static function boundTo(value:Float, min:Float, max:Float):Float {

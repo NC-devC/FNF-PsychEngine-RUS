@@ -259,7 +259,13 @@ class FreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 		}
 
-		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		switch(ClientPrefs.language)
+		{
+			case 'ru':
+				scoreText.text = 'РЕКОРД: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+			default:
+				scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		}
 		positionHighscore();
 
 		var upP = controls.UI_UP_P;
@@ -421,7 +427,7 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		PlayState.storyDifficulty = curDifficulty;
-		diffText.text = '< ' + CoolUtil.difficultyString() + ' >';
+		diffText.text = '< ' + CoolUtil.fakeDifficultyString() + ' >';
 		positionHighscore();
 	}
 
