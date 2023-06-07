@@ -1,0 +1,2 @@
+ENG: If you want to change the font, then the font must contain Russian and English. IT MUST BE CONTAINED
+RUS: Если вы хотите поменять шрифт то шрифт должен содержаться русского и англиского языка. ЭТО ОБЕЗАТЕЛЬНО 
