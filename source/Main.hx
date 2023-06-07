@@ -65,6 +65,16 @@ class Main extends Sprite
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 	}
+	#if mobile
+var justTouched:Bool = false;
+
+for (touch in FlxG.touches.list)
+	if (touch.justPressed)
+		justTouched = true;
+
+if (justTouched)
+	// Your code
+#end
 
 	private function init(?E:Event):Void
 	{
