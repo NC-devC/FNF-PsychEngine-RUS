@@ -29,7 +29,13 @@ class AchievementsMenuState extends MusicBeatState
 
 	override function create() {
 		#if desktop
-		DiscordClient.changePresence("Achievements Menu", null);
+		switch(ClientPrefs.language)
+		{
+			case 'ru':
+				DiscordClient.changePresence("Меню Достижений", null);
+			default:
+				DiscordClient.changePresence("Achievements Menu", null);
+		}
 		#end
 
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
