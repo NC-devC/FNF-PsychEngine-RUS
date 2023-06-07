@@ -80,39 +80,44 @@ class CreditsState extends MusicBeatState
 		}
 		#end
 
-		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			switch(ClientPrefs.language)
-			{
-				case 'ru':
+		var pisspoop:Array<Array<String>> = []; //Name - Icon name - Description - Link - BG Color
+		
+
+		switch(ClientPrefs.language)
+		{
+			case 'ru':
+				pisspoop = [
 					['Команда переводчиков'],
 					['NC',		'rus/neocat',		'Фанатский перевод Psych Engine, код и тд. Ссылка ведёт на гитхаб.',								'https://github.com/NC-devC',	'444444'],
 					['NC',		'rus/neocat',		'Фанатский перевод Psych Engine, код и тд. Ссылка ведёт на геймджолт.',								'https://gamejolt.com/@DragonK',	'444444'],
 					['Smixels2',		'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',								'https://twitter.com/SMixels2',	'444444'],
 					['Ender69',		'rus/ender',		'Шрифт, код',								'https://www.youtube.com/@ender69funk',	'444444'],
 					['Psych Engine Team'],
-					['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
-					['RiverOaken',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
-					['shubs',				'shubs',			'Additional Programmer of Psych Engine',						'https://twitter.com/yoshubs',			'5E99DF'],
+					['Shadow Mario',		'shadowmario',		'Главный программист Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
+					['RiverOaken',			'river',			'Главный художник/аниматор Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
+					['shubs',				'shubs',			'Программист Psych Engine',						'https://twitter.com/yoshubs',			'5E99DF'],
 					[''],
 					['Former Engine Members'],
-					['bb-panzu',			'bb',				'Ex-Programmer of Psych Engine',								'https://twitter.com/bbsub3',			'3E813A'],
+					['bb-panzu',			'bb',				'Бывший программист Psych Engine',								'https://twitter.com/bbsub3',			'3E813A'],
 					[''],
 					['Engine Contributors'],
-					['iFlicky',				'flicky',			'Composer of Psync and Tea Time\nMade the Dialogue Sounds',		'https://twitter.com/flicky_i',			'9E29CF'],
-					['SqirraRNG',			'sqirra',			'Crash Handler and Base code for\nChart Editor\'s Waveform',	'https://twitter.com/gedehari',			'E1843A'],
-					['EliteMasterEric',		'mastereric',		'Runtime Shaders support',										'https://twitter.com/EliteMasterEric',	'FFBD40'],
-					['PolybiusProxy',		'proxy',			'.MP4 Video Loader Library (hxCodec)',							'https://twitter.com/polybiusproxy',	'DCD294'],
-					['KadeDev',				'kade',				'Fixed some cool stuff on Chart Editor\nand other PRs',			'https://twitter.com/kade0912',			'64A250'],
-					['Keoiki',				'keoiki',			'Note Splash Animations',										'https://twitter.com/Keoiki_',			'D2D2D2'],
-					['Nebula the Zorua',	'nebula',			'LUA JIT Fork and some Lua reworks',							'https://twitter.com/Nebula_Zorua',		'7D40B2'],
-					['Smokey',				'smokey',			'Sprite Atlas Support',											'https://twitter.com/Smokey_5_',		'483D92'],
+					['iFlicky',				'flicky',			'Композитор Psync и Tea Time\nСделал звуки диалогов',		'https://twitter.com/flicky_i',			'9E29CF'],
+					['SqirraRNG',			'sqirra',			'Обработчик ошибок и базовый код для\nсистемы форм волн\'в редакторе песен',	'https://twitter.com/gedehari',			'E1843A'],
+					['EliteMasterEric',		'mastereric',		'Поддержка шейдеров во время выполнения',										'https://twitter.com/EliteMasterEric',	'FFBD40'],
+					['PolybiusProxy',		'proxy',			'Библиотека .MP4 видеозагрузчика (hxCodec)',							'https://twitter.com/polybiusproxy',	'DCD294'],
+					['KadeDev',				'kade',				'Исправлены некоторые крутые вещи в редакторе песен\nи другие PRs',			'https://twitter.com/kade0912',			'64A250'],
+					['Keoiki',				'keoiki',			'Анимации всплесков нот',										'https://twitter.com/Keoiki_',			'D2D2D2'],
+					['Nebula the Zorua',	'nebula',			'LUA JIT Форк и некоторые Lua переработки',							'https://twitter.com/Nebula_Zorua',		'7D40B2'],
+					['Smokey',				'smokey',			'Поддержка спрайтовых атласов',											'https://twitter.com/Smokey_5_',		'483D92'],
 					[''],
 					["Funkin' Crew"],
-					['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
-					['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
-					['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
-					['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7']
-				default:
+					['ninjamuffin99',		'ninjamuffin99',	"Программист Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
+					['PhantomArcade',		'phantomarcade',	"Аниматор Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
+					['evilsk8r',			'evilsk8r',			"Художник Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
+					['kawaisprite',			'kawaisprite',		"Композитор Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7']
+				];
+			default:
+				pisspoop = [
 					['Translation team'],
 					['NC',			'rus/neocat',		'Fan translation of Psych Engine, code, etc. The link leads to github.','https://github.com/NC-devC',			'444444'],
 					['NC',			'rus/neocat',		'Fan translation of Psych Engine, code, etc. The link leads to gamejolt','https://gamejolt.com/@DragonK',		'444444'],
@@ -141,9 +146,8 @@ class CreditsState extends MusicBeatState
 					['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
 					['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
 					['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7']
-			}
-		];
-		
+				];
+		}
 		for(i in pisspoop){
 			creditsStuff.push(i);
 		}
