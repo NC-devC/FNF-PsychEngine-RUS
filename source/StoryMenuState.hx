@@ -59,18 +59,36 @@ class StoryMenuState extends MusicBeatState
 		if(curWeek >= WeekData.weeksList.length) curWeek = 0;
 		persistentUpdate = persistentDraw = true;
 
-		scoreText = new FlxText(10, 10, 0, "ОЧКИ: 49324858", 36);
-		scoreText.setFormat("VCR OSD Mono", 32);
+		switch(ClientPrefs.language)
+		{
+			case "ru":
+				scoreText = new FlxText(10, 10, 0, "ОЧКИ: 49324858", 36);
+				scoreText.setFormat("vcr.ttf", 32);
 
-		txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
-		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
-		txtWeekTitle.alpha = 0.7;
+				txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
+				txtWeekTitle.setFormat("vcr.ttf", 32, FlxColor.WHITE, RIGHT);
+				txtWeekTitle.alpha = 0.7;
 
-		var rankText:FlxText = new FlxText(0, 10);
-		rankText.text = 'РАНГ: GREAT';
-		rankText.setFormat(Paths.font("vcr.ttf"), 32);
-		rankText.size = scoreText.size;
-		rankText.screenCenter(X);
+				/*var rankText:FlxText = new FlxText(0, 10);
+				rankText.text = 'РАНГ: GREAT';
+				rankText.setFormat(Paths.font("vcr.ttf"), 32);
+				rankText.size = scoreText.size;
+				rankText.screenCenter(X);*/
+
+			default:
+				scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
+				scoreText.setFormat("vcr.ttf", 32);
+
+				txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
+				txtWeekTitle.setFormat("vcr.ttf", 32, FlxColor.WHITE, RIGHT);
+				txtWeekTitle.alpha = 0.7;
+
+				/*var rankText:FlxText = new FlxText(0, 10);
+				rankText.text = 'RANK: GREAT';
+				rankText.setFormat(Paths.font("vcr.ttf"), 32);
+				rankText.size = scoreText.size;
+				rankText.screenCenter(X);*/
+		}
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
@@ -89,8 +107,13 @@ class StoryMenuState extends MusicBeatState
 		add(grpLocks);
 
 		#if desktop
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		switch(ClientPrefs.language)
+		{
+			case "ru":
+				DiscordClient.changePresence("В меню", null);
+			default:
+				DiscordClient.changePresence("In the Menus", null);
+		}
 		#end
 
 		var num:Int = 0;
@@ -175,10 +198,10 @@ class StoryMenuState extends MusicBeatState
 
 		txtTracklist = new FlxText(FlxG.width * 0.05, tracksSprite.y + 60, 0, "", 32);
 		txtTracklist.alignment = CENTER;
-		txtTracklist.font = rankText.font;
+		//txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
 		add(txtTracklist);
-		// add(rankText);
+		///add(rankText);
 		add(scoreText);
 		add(txtWeekTitle);
 

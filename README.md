@@ -3,8 +3,11 @@
 В настоящее время ведётся перевод версии 0.6.3.
 
 Команда:
+
 NC - кодер, переводчик и тд
+
 Ender69 - кодер
+
 Smixels2 - артист
 
 Специальные возможности мода:
@@ -13,17 +16,21 @@ Smixels2 - артист
 
 Возможность добавить перевод диалога:
 
-Пример английского диалога:
-senpaiDialogue.txt
-Пример русского диалога:
-senpaiDialogue-ru.txt
+Пример английского диалога: senpaiDialogue.txt
+
+Пример русского диалога: senpaiDialogue-ru.txt
+
 Эта механника в разработке.
+
 
 Билд на GitHub:
 
 1.Создайте репозиторий и перенесите всё с нашего репозитория, или же сделайте это по нашему template.
+
 2.Нажмите на Actions
+
 3.Выберите ForceBuild
+
 4.Запустите ForceBuild
 
 Для работы на вашем ПК и билду на GitHub:
@@ -32,13 +39,12 @@ senpaiDialogue-ru.txt
 
 Git:
 
-Для коммита:
+Для коммита: `git add .`
 
-git add .
-git commit -m "Название коммита"
-git push "ссылка на репозиторий"
+`git commit -m "Название коммита"`
 
-или через Github Desktor
+`git push "ссылка на репозиторий"`
+
 
 Билд на вашем ПК:
 
@@ -46,50 +52,81 @@ git push "ссылка на репозиторий"
 
 Если пакет hmm не работает, то рекомендуем скачивать пакеты по файлу в .github/workflows/autobuild.yml:
 
-haxelib setup C:/haxelib
-haxelib install hxcpp > /dev/null --quiet
-haxelib install actuate 1.9.0
-haxelib install box2d 1.2.3 
-haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-haxelib git faxe https://github.com/ashea-code/faxe
-haxelib install flixel 4.11.0
-haxelib git flixel-demos https://github.com/HaxeFlixel/flixel-demos
-haxelib install flixel-addons 2.11.0
-haxelib git flixel-ui https://github.com/HaxeFlixel/flixel-ui
-haxelib install flixel-templates 2.6.6
-haxelib install flixel-tools 1.5.1
-haxelib install hscript 2.5.0
-haxelib install hxCodec 2.6.1
-haxelib install hxcpp 4.2.1
-haxelib install hscript 2.5.0
-haxelib install layout 1.2.1 
-haxelib install lime 8.0.0
-haxelib install lime-samples 7.0.0
-haxelib install newgrounds 2.0.1
-haxelib install openfl 9.2.0
-haxelib install openfl-samples 8.7.0
-haxelib run lime setup
-haxelib git tentools https://github.com/TentaRJ/tentools.git
-haxelib git systools https://github.com/haya3218/systools
-haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
-haxelib git polymod https://github.com/larsiusprime/polymod.git
+`haxelib setup C:/haxelib`
+
+`haxelib install hxcpp > /dev/null --quiet`
+
+`haxelib install actuate 1.9.0`
+
+`haxelib install box2d 1.2.3`
+
+`haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc`
+
+`haxelib git faxe https://github.com/ashea-code/faxe`
+
+`haxelib install flixel 4.11.0`
+
+`haxelib git flixel-demos https://github.com/HaxeFlixel/flixel-demos`
+
+`haxelib install flixel-addons 2.11.0`
+
+`haxelib git flixel-ui https://github.com/HaxeFlixel/flixel-ui`
+
+`haxelib install flixel-templates 2.6.6`
+
+`haxelib install flixel-tools 1.5.1`
+
+`haxelib install hscript 2.5.0`
+
+`haxelib install hxCodec 2.6.1`
+
+`haxelib install hxcpp 4.2.1`
+
+`haxelib install hscript 2.5.0`
+
+`haxelib install layout 1.2.1` 
+
+`haxelib install lime 8.0.0`
+
+`haxelib install lime-samples 7.0.0`
+
+`haxelib install newgrounds 2.0.1`
+
+`haxelib install openfl 9.2.0`
+
+`haxelib install openfl-samples 8.7.0`
+
+`haxelib run lime setup`
+
+`haxelib git tentools https://github.com/TentaRJ/tentools.git`
+
+`haxelib git systools https://github.com/haya3218/systools`
+
+`haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit`
+
+`haxelib git polymod https://github.com/larsiusprime/polymod.git`
 
 Взависимости от вашей платформы:
 
 Windows:
-haxelib run lime rebuild systools windows
+
+`haxelib run lime rebuild systools windows`
 
 Linux:
-haxelib run lime rebuild systools linux
+
+`haxelib run lime rebuild systools linux`
 
 Mac OS:
-haxelib run lime rebuild systools mac
+
+`haxelib run lime rebuild systools mac`
 
 Билд:
-lime build windows
+
+`lime build windows`
 
 Тест:
-lime test windows
+
+`lime test windows`
 
 Но, если вам лень устанавливать что либо, то просто отправляйте изменения на гитхаб и наш мод скомпилирует всё за вас.
 
