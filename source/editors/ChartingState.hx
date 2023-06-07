@@ -338,7 +338,7 @@ class ChartingState extends MusicBeatState
 		UI_box.y = 25;
 		UI_box.scrollFactor.set();
 
-		text =
+		/*text =
 		"W/S or Mouse Wheel - Change Conductor's strum time
 		\nA/D - Go to the previous/next section
 		\nLeft/Right - Change Snap
@@ -352,7 +352,43 @@ class ChartingState extends MusicBeatState
 		\nEsc - Test your chart inside Chart Editor
 		\nEnter - Play your chart
 		\nQ/E - Decrease/Increase Note Sustain Length
-		\nSpace - Stop/Resume song";
+		\nSpace - Stop/Resume song";*/
+
+		switch(ClientPrefs.language)
+		{
+			case "ru":
+				text =
+				"W/S или Колесо Мыши - Измените время игры дирижера
+				\nA/D - Перейти к предыдущему/следующему разделу
+				\nLeft/Right - Изменить привязку
+				\nUp/Down - Измените время бренчания дирижера с помощью щелчка
+				\nЛевая скобка / Правая скобка - Изменение скорости воспроизведения песни (СДВИГ для ускорения)
+				\nALT + Левая скобка / Правая скобка - Сброс скорости воспроизведения песни
+				\nУдерживайте Shift, чтобы двигаться в 4 раза быстрее
+				\nУдерживайте Control и нажмите на стрелку, чтобы выбрать его
+				\nZ/X - Увеличение/уменьшение масштаба
+				\n
+				\nEsc - Протестируйте свою чарт в Редакторе Чарт
+				\nEnter - Воспроизведите свой Чарт
+				\nQ/E - Уменьшение/увеличение продолжительности сустейна ноты
+				\nSpace - Остановить/Возобновить песню";
+			default:
+				text =
+				"W/S or Mouse Wheel - Change Conductor's strum time
+				\nA/D - Go to the previous/next section
+				\nLeft/Right - Change Snap
+				\nUp/Down - Change Conductor's Strum Time with Snapping
+				\nLeft Bracket / Right Bracket - Change Song Playback Rate (SHIFT to go Faster)
+				\nALT + Left Bracket / Right Bracket - Reset Song Playback Rate
+				\nHold Shift to move 4x faster
+				\nHold Control and click on an arrow to select it
+				\nZ/X - Zoom in/out
+				\n
+				\nEsc - Test your chart inside Chart Editor
+				\nEnter - Play your chart
+				\nQ/E - Decrease/Increase Note Sustain Length
+				\nSpace - Stop/Resume song";
+		}
 
 		var tipTextArray:Array<String> = text.split('\n');
 		for (i in 0...tipTextArray.length) {
@@ -429,7 +465,7 @@ class ChartingState extends MusicBeatState
 			updateWaveform();
 		});
 
-		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload JSON", function()
+		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload Chart", function()
 		{
 			openSubState(new Prompt('This action will clear current progress.\n\nProceed?', 0, function(){loadJson(_song.song.toLowerCase()); }, null,ignoreWarnings));
 		});
@@ -442,7 +478,6 @@ class ChartingState extends MusicBeatState
 
 		var loadEventJson:FlxButton = new FlxButton(loadAutosaveBtn.x, loadAutosaveBtn.y + 30, 'Load Events', function()
 		{
-
 			var songName:String = Paths.formatToSongPath(_song.song);
 			var file:String = Paths.json(songName + '/events');
 			#if sys
