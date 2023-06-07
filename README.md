@@ -16,15 +16,12 @@ Smixels2 - артист
 
 Возможность добавить перевод диалога:
 
-Пример английского диалога:
+Пример английского диалога: senpaiDialogue.txt
 
-senpaiDialogue.txt
-
-Пример русского диалога:
-
-senpaiDialogue-ru.txt
+Пример русского диалога: senpaiDialogue-ru.txt
 
 Эта механника в разработке.
+
 
 Билд на GitHub:
 
@@ -42,9 +39,7 @@ senpaiDialogue-ru.txt
 
 Git:
 
-Для коммита:
-
-`git add .`
+Для коммита: `git add .`
 
 `git commit -m "Название коммита"`
 
