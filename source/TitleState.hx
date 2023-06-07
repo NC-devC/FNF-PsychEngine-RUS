@@ -16,7 +16,7 @@ import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 #if MODS_ALLOWED
 import sys.FileSystem;
-import sys.io.File;
+import /*SUtil.getStorageDirectory() + */sys.io.File;
 #end
 import options.GraphicsSettingsSubState;
 //import flixel.graphics.FlxGraphic;
