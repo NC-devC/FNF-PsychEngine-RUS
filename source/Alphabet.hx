@@ -39,6 +39,8 @@ class Alphabet extends FlxSpriteGroup
 	public var distancePerItem:FlxPoint = new FlxPoint(20, 120);
 	public var startPosition:FlxPoint = new FlxPoint(0, 0); //for the calculations
 
+	public var language:Bool = true;
+
 	public function new(x:Float, y:Float, text:String = "", ?bold:Bool = true)
 	{
 		super(x, y);
@@ -275,6 +277,14 @@ class AlphaCharacter extends FlxSprite
 		'm'  => null, 'n'  => null, 'o'  => null, 'p'  => null, 'q'  => null, 'r'  => null,
 		's'  => null, 't'  => null, 'u'  => null, 'v'  => null, 'w'  => null, 'x'  => null,
 		'y'  => null, 'z'  => null,
+
+		//RusAlphabet - cyka blyat
+		'а'  => null, 'б'  => null, 'в'  => null, 'г'  => null, 'д'  => null, 'ж'  => null,
+		'з'  => null, 'и'  => null, 'й'  => null, 'к'  => null, 'л'  => null, 'м'  => null,
+		'н'  => null, 'о'  => null, 'п'  => null, 'р'  => null, 'с'  => null, 'т'  => null,
+		'у'  => null, 'ф'  => null, 'х'  => null, 'ц'  => null, 'ч'  => null, 'ш'  => null,
+		'щ'  => null, 'ъ'  => null, 'ы'  => null, 'ь'  => null, 'э'  => null, 'ю'  => null,
+		'я'  => null, 'ё'  => null,
 		
 		//numbers
 		'0'  => null, '1'  => null, '2'  => null, '3'  => null, '4'  => null,
@@ -329,6 +339,10 @@ class AlphaCharacter extends FlxSprite
 		this.parent = parent;
 		image = 'alphabet';
 		antialiasing = ClientPrefs.globalAntialiasing;
+
+		/*image = 'alphabet_rus';
+		antialiasing = ClientPrefs.globalAntialiasing;
+		language = ClientPrefs.language;*/
 
 		var curLetter:Letter = allLetters.get('?');
 		var lowercase = character.toLowerCase();
