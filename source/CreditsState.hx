@@ -84,7 +84,7 @@ class CreditsState extends MusicBeatState
 			['Команда переводчиков'],
 			['NC',		'rus/neocat',		'Фанатский перевод Psych Engine, код и тд. Ссылка ведёт на гитхаб.',								'https://github.com/NC-devC',	'444444'],
 			['NC',		'rus/neocat',		'Фанатский перевод Psych Engine, код и тд. Ссылка ведёт на геймджолт.',								'https://gamejolt.com/@DragonK',	'444444'],
-			['Smixels2',		'rus/smixels',		'Аватарка для credits, шрифт.',								'https://twitter.com/SMixels2',	'444444'],
+			['Smixels2',		'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',								'https://twitter.com/SMixels2',	'444444'],
 			['Ender69',		'rus/ender',		'Шрифт, код',								'https://www.youtube.com/@ender69funk',	'444444'],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
