@@ -69,11 +69,11 @@ class StoryMenuState extends MusicBeatState
 				txtWeekTitle.setFormat("vcr.ttf", 32, FlxColor.WHITE, RIGHT);
 				txtWeekTitle.alpha = 0.7;
 
-				var rankText:FlxText = new FlxText(0, 10);
+				/*var rankText:FlxText = new FlxText(0, 10);
 				rankText.text = 'РАНГ: GREAT';
 				rankText.setFormat(Paths.font("vcr.ttf"), 32);
 				rankText.size = scoreText.size;
-				rankText.screenCenter(X);
+				rankText.screenCenter(X);*/
 
 			default:
 				scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
@@ -83,11 +83,11 @@ class StoryMenuState extends MusicBeatState
 				txtWeekTitle.setFormat("vcr.ttf", 32, FlxColor.WHITE, RIGHT);
 				txtWeekTitle.alpha = 0.7;
 
-				var rankText:FlxText = new FlxText(0, 10);
+				/*var rankText:FlxText = new FlxText(0, 10);
 				rankText.text = 'RANK: GREAT';
 				rankText.setFormat(Paths.font("vcr.ttf"), 32);
 				rankText.size = scoreText.size;
-				rankText.screenCenter(X);
+				rankText.screenCenter(X);*/
 		}
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
@@ -201,7 +201,7 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
 		add(txtTracklist);
-		// add(rankText);
+		add(rankText);
 		add(scoreText);
 		add(txtWeekTitle);
 
