@@ -83,6 +83,10 @@ class TitleState extends MusicBeatState
 	var titleJSON:TitleData;
 
 	public static var updateVersion:String = '';
+	
+	#if android
+FlxG.android.preventDefaultKeys = [BACK];
+#end
 
 	override public function create():Void
 	{
