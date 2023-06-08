@@ -21,7 +21,7 @@ class PauseSubState extends MusicBeatSubstate
 
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
-	var menuItemsOGRu:Array<String> = ['Продолжиtь', 'Перезапусtиtь Песню', 'Смениtь Сложносtь', 'Выйtи в меню'];
+	var menuItemsOGRu:Array<String> = ['Пpoдoлжиtь', 'Пepeзапуctиtь Пechю', 'cmehиtь cлoжhoctь', 'Выйtи в mehю'];
 	var menuItemsOGEn:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
@@ -42,7 +42,7 @@ class PauseSubState extends MusicBeatSubstate
 		{
 			case 'ru':
 				menuItemsOG = menuItemsOGRu;
-				if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Смениtь Сложносtь'); //No need to change difficulty if there is only one!
+				if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('cmehиtь cлoжhoctь'); //No need to change difficulty if there is only one!
 			default:
 				menuItemsOG = menuItemsOGEn;
 				if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
@@ -53,7 +53,7 @@ class PauseSubState extends MusicBeatSubstate
 			switch(ClientPrefs.language)
 			{
 				case 'ru':
-					menuItemsOG.insert(2, 'Покинуtь Режим Редакtора');
+					menuItemsOG.insert(2, 'Пokиhуtь peжиm peдаktopа');
 				default:
 					menuItemsOG.insert(2, 'Leave Charting Mode');
 			}
@@ -65,7 +65,7 @@ class PauseSubState extends MusicBeatSubstate
 				switch(ClientPrefs.language)
 				{
 					case 'ru':
-						menuItemsOG.insert(3, 'Пропусtиtь Время');
+						menuItemsOG.insert(3, 'Пpoпуctиtь Вpemя');
 					default:
 						menuItemsOG.insert(3, 'Skip Time');
 				}
@@ -73,9 +73,9 @@ class PauseSubState extends MusicBeatSubstate
 			switch(ClientPrefs.language)
 			{
 				case 'ru':
-					menuItemsOG.insert(3 + num, 'Завершиtь Песню');
-					menuItemsOG.insert(4 + num, 'Включиtь Режим Пракtики');
-					menuItemsOG.insert(5 + num, 'Включиtь Режим Боtа');
+					menuItemsOG.insert(3 + num, 'Завepшиtь Пechю');
+					menuItemsOG.insert(4 + num, 'Вkлючиtь peжиm Пpаktиkи');
+					menuItemsOG.insert(5 + num, 'Вkлючиtь peжиm Бotа');
 				default:
 					menuItemsOG.insert(3 + num, 'End Song');
 					menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
@@ -122,13 +122,13 @@ class PauseSubState extends MusicBeatSubstate
 		add(levelDifficulty);
 
 		var blueballedTxt:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
-		blueballedTxt.text = "Проигрышей: " + PlayState.deathCounter;
+		blueballedTxt.text = "Пpoигpышeй: " + PlayState.deathCounter;
 		blueballedTxt.scrollFactor.set();
 		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
-		practiceText = new FlxText(20, 15 + 101, 0, "РЕЖИМ ПРАКtИКИ", 32);
+		practiceText = new FlxText(20, 15 + 101, 0, "peЖИm ПpАktИkИ", 32);
 		practiceText.scrollFactor.set();
 		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
@@ -136,7 +136,7 @@ class PauseSubState extends MusicBeatSubstate
 		practiceText.visible = PlayState.instance.practiceMode;
 		add(practiceText);
 
-		var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "РЕЖИМ РЕДАКtОРА", 32);
+		var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "peЖИm peДАktopА", 32);
 		chartingText.scrollFactor.set();
 		chartingText.setFormat(Paths.font('vcr.ttf'), 32);
 		chartingText.x = FlxG.width - (chartingText.width + 20);
@@ -192,7 +192,7 @@ class PauseSubState extends MusicBeatSubstate
 		var daSelected:String = menuItems[curSelected];
 		switch (daSelected)
 		{
-			case 'Skip Time' | "Пропусtиtь Время":
+			case 'Skip Time' | "Пpoпуctиtь Вpemя":
 				if (controls.UI_LEFT_P)
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -242,22 +242,22 @@ class PauseSubState extends MusicBeatSubstate
 
 			switch (daSelected)
 			{
-				case "Resume" | "Продолжиtь":
+				case "Resume" | "Пpoдoлжиtь":
 					close();
-				case 'Change Difficulty' | "Смениtь Сложносtь":
+				case 'Change Difficulty' | "cmehиtь cлoжhoctь":
 					menuItems = difficultyChoices;
 					deleteSkipTimeText();
 					regenMenu();
-				case 'Toggle Practice Mode' | "Включиtь Режим Пракtики":
+				case 'Toggle Practice Mode' | "Вkлючиtь peжиm Пpаktиkи":
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
 					practiceText.visible = PlayState.instance.practiceMode;
-				case "Restart Song" | "Перезапусtиtь Песню":
+				case "Restart Song" | "Пepeзапуctиtь Пechю":
 					restartSong();
-				case "Leave Charting Mode" | "Покинуtь Режим Редакtора":
+				case "Leave Charting Mode" | "Пokиhуtь peжиm peдаktopа":
 					restartSong();
 					PlayState.chartingMode = false;
-				case 'Skip Time' | "Пропусtиtь Время":
+				case 'Skip Time' | "Пpoпуctиtь Вpemя":
 					if(curTime < Conductor.songPosition)
 					{
 						PlayState.startOnTime = curTime;
@@ -272,16 +272,16 @@ class PauseSubState extends MusicBeatSubstate
 						}
 						close();
 					}
-				case "End Song" | "Завершиtь Песню":
+				case "End Song" | "Завepшиtь Пechю":
 					close();
 					PlayState.instance.finishSong(true);
-				case 'Toggle Botplay' | "Включиtь Режим Боtа":
+				case 'Toggle Botplay' | "Вkлючиtь peжиm Бotа":
 					PlayState.instance.cpuControlled = !PlayState.instance.cpuControlled;
 					PlayState.changedDifficulty = true;
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
-				case "Exit to menu" | "Выйtи в меню":
+				case "Exit to menu" | "Выйtи в mehю":
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 
@@ -396,7 +396,7 @@ class PauseSubState extends MusicBeatSubstate
 				updateSkipTextStuff();
 				updateSkipTimeText();
 			}
-			if(menuItems[i] == 'Пропусtиtь Время')
+			if(menuItems[i] == 'Пpoпуctиtь Вpemя')
 			{
 				skipTimeText = new FlxText(0, 0, 0, '', 64);
 				skipTimeText.setFormat(Paths.font("vcr.ttf"), 64, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);

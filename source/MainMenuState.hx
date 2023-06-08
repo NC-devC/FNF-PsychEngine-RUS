@@ -57,7 +57,13 @@ class MainMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		switch(ClientPrefs.language)
+		{
+			case 'ru':
+				DiscordClient.changePresence("В меню", null);
+			default:
+				DiscordClient.changePresence("In the Menus", null);
+		}
 		#end
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
@@ -153,7 +159,7 @@ class MainMenuState extends MusicBeatState
 				versionShit.setFormat("vcr.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				add(versionShit);
 			default:
-				var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Russifier v" + localizationVersion, 12);
+				var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Localization v" + localizationVersion, 12);
 				versionShit.scrollFactor.set();
 				versionShit.setFormat("vcr.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				add(versionShit);
