@@ -2294,10 +2294,19 @@ class PlayState extends MusicBeatState
 
 	public function updateScore(miss:Bool = false)
 	{
-		scoreTxt.text = 'Очки: ' + songScore
-		+ ' | Промахи: ' + songMisses
-		+ ' | Рейтинг: ' + ratingName
-		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+		switch(ClientPrefs.language)
+		{
+			case "ru":
+				scoreTxt.text = 'Очки: ' + songScore
+				+ ' | Промахи: ' + songMisses
+				+ ' | Рейтинг: ' + ratingName
+				+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+			default:
+				scoreTxt.text = 'Score: ' + songScore
+				+ ' | Misses: ' + songMisses
+				+ ' | Rating: ' + ratingName
+				+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+			}
 
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
