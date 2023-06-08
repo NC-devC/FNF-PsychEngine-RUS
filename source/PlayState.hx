@@ -4103,7 +4103,7 @@ class PlayState extends MusicBeatState
 		switch(ClientPrefs.language)
 		{
 			case 'ru':
-				rus = "rateru/";
+				rus = "";
 			default:
 				rus = "";
 		}
@@ -4196,7 +4196,7 @@ class PlayState extends MusicBeatState
 		{
 			if(ClientPrefs.language == 'ru')
 			{
-				pixelShitPart1 = "rateru/";
+				pixelShitPart1 = "";
 				pixelShitPart2 = "";
 			}
 			else
