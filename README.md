@@ -106,6 +106,12 @@ Git:
 
 `haxelib git polymod https://github.com/larsiusprime/polymod.git`
 
+Мобильный поддержка
+
+`haxelib git extension-androidtools https://github.com/jigsaw-4277821/extension-androidtools.git`
+
+
+
 Взависимости от вашей платформы:
 
 Windows:
