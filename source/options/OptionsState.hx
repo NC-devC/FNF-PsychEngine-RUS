@@ -30,6 +30,8 @@ using StringTools;
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Language'];
+	var optionsRu:Array<String> = ['Note Colors', 'Управления', 'Отрегулируйте задержку и комбинацию', 'Графика', 'Визуализация и интерфейс', 'Игровой процесс', 'Язык'];
+	var optionsEn:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Language'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
