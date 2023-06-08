@@ -312,7 +312,15 @@ class AlphaCharacter extends FlxSprite
 		'\\' => {anim: 'back slash', offsets: [0, 0]},
 		'/'  => {anim: 'forward slash', offsets: [0, 0]},
 		'|'  => null,
-		'~'  => {offsets: [0, 16]}
+		'~'  => {offsets: [0, 16]},
+
+		//Russian alphabet(Русский алфавит)
+		'а' => null, 'б' => null, 'в' => null, 'г' => null, 'д' => null, 'е' => null,
+		'ё' => null, 'ж' => null, 'з' => null, 'и' => null, 'й' => null, 'к' => null,
+		'л' => null, 'м' => null, 'н' => null, 'о' => null, 'п' => null, 'р' => null,
+		'с' => null, 'т' => null, 'у' => null, 'ф' => null, 'х' => null, 'ц' => null,
+		'ч' => null, 'ш' => null, 'щ' => null, 'ъ' => null, 'ы' => null, 'ь' => null,
+		'э' => null, 'ю' => null, 'я' => null
 	];
 
 	var parent:Alphabet;
@@ -327,7 +335,14 @@ class AlphaCharacter extends FlxSprite
 	{
 		super(x, y);
 		this.parent = parent;
-		image = 'alphabet';
+
+		switch(character.toLowerCase())
+		{
+			case 'а' | "б" | "в" | "г" | "д" | "е" | "ё" | "ж" | "з" | 'и' | "й" | "к" | "л" | "м" | "н" | "о" | "п" | "р" | "с" | "т" | "у" | "ф" | "х" | "ц" | "ч" | "ш" | "щ" | "ъ" | "ы" | "ь" | "э" | "ю" | "я":
+				image = 'alphabet_rus';
+			default:
+				image = 'alphabet';
+		}
 		antialiasing = ClientPrefs.globalAntialiasing;
 
 		var curLetter:Letter = allLetters.get('?');

@@ -21,6 +21,8 @@ class PauseSubState extends MusicBeatSubstate
 
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
+	var menuItemsOGRu:Array<String> = ['Продолжиtь', 'Перезапусtиtь Песню', 'Смениtь Сложносtь', 'Выйtи в меню'];
+	var menuItemsOGEn:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -36,21 +38,49 @@ class PauseSubState extends MusicBeatSubstate
 	public function new(x:Float, y:Float)
 	{
 		super();
-		if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
+		switch(ClientPrefs.language)
+		{
+			case 'ru':
+				menuItemsOG = menuItemsOGRu;
+				if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Смениtь Сложносtь'); //No need to change difficulty if there is only one!
+			default:
+				menuItemsOG = menuItemsOGEn;
+				if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
+		}
 
 		if(PlayState.chartingMode)
 		{
-			menuItemsOG.insert(2, 'Leave Charting Mode');
+			switch(ClientPrefs.language)
+			{
+				case 'ru':
+					menuItemsOG.insert(2, 'Покинуtь Режим Редакtора');
+				default:
+					menuItemsOG.insert(2, 'Leave Charting Mode');
+			}
 			
 			var num:Int = 0;
 			if(!PlayState.instance.startingSong)
 			{
 				num = 1;
-				menuItemsOG.insert(3, 'Skip Time');
+				switch(ClientPrefs.language)
+				{
+					case 'ru':
+						menuItemsOG.insert(3, 'Пропусtиtь Время');
+					default:
+						menuItemsOG.insert(3, 'Skip Time');
+				}
 			}
-			menuItemsOG.insert(3 + num, 'End Song');
-			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
-			menuItemsOG.insert(5 + num, 'Toggle Botplay');
+			switch(ClientPrefs.language)
+			{
+				case 'ru':
+					menuItemsOG.insert(3 + num, 'Завершиtь Песню');
+					menuItemsOG.insert(4 + num, 'Включиtь Режим Пракtики');
+					menuItemsOG.insert(5 + num, 'Включиtь Режим Боtа');
+				default:
+					menuItemsOG.insert(3 + num, 'End Song');
+					menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
+					menuItemsOG.insert(5 + num, 'Toggle Botplay');
+			}
 		}
 		menuItems = menuItemsOG;
 
@@ -98,7 +128,7 @@ class PauseSubState extends MusicBeatSubstate
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
-		practiceText = new FlxText(20, 15 + 101, 0, "РЕЖИМ ПРАКТИКИ", 32);
+		practiceText = new FlxText(20, 15 + 101, 0, "РЕЖИМ ПРАКtИКИ", 32);
 		practiceText.scrollFactor.set();
 		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
@@ -106,7 +136,7 @@ class PauseSubState extends MusicBeatSubstate
 		practiceText.visible = PlayState.instance.practiceMode;
 		add(practiceText);
 
-		var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "РЕЖИМ РЕДАКТОРА", 32);
+		var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "РЕЖИМ РЕДАКtОРА", 32);
 		chartingText.scrollFactor.set();
 		chartingText.setFormat(Paths.font('vcr.ttf'), 32);
 		chartingText.x = FlxG.width - (chartingText.width + 20);
@@ -162,7 +192,7 @@ class PauseSubState extends MusicBeatSubstate
 		var daSelected:String = menuItems[curSelected];
 		switch (daSelected)
 		{
-			case 'Skip Time':
+			case 'Skip Time' | "Пропусtиtь Время":
 				if (controls.UI_LEFT_P)
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -212,22 +242,22 @@ class PauseSubState extends MusicBeatSubstate
 
 			switch (daSelected)
 			{
-				case "Resume":
+				case "Resume" | "Продолжиtь":
 					close();
-				case 'Change Difficulty':
+				case 'Change Difficulty' | "Смениtь Сложносtь":
 					menuItems = difficultyChoices;
 					deleteSkipTimeText();
 					regenMenu();
-				case 'Toggle Practice Mode':
+				case 'Toggle Practice Mode' | "Включиtь Режим Пракtики":
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
 					practiceText.visible = PlayState.instance.practiceMode;
-				case "Restart Song":
+				case "Restart Song" | "Перезапусtиtь Песню":
 					restartSong();
-				case "Leave Charting Mode":
+				case "Leave Charting Mode" | "Покинуtь Режим Редакtора":
 					restartSong();
 					PlayState.chartingMode = false;
-				case 'Skip Time':
+				case 'Skip Time' | "Пропусtиtь Время":
 					if(curTime < Conductor.songPosition)
 					{
 						PlayState.startOnTime = curTime;
@@ -242,16 +272,16 @@ class PauseSubState extends MusicBeatSubstate
 						}
 						close();
 					}
-				case "End Song":
+				case "End Song" | "Завершиtь Песню":
 					close();
 					PlayState.instance.finishSong(true);
-				case 'Toggle Botplay':
+				case 'Toggle Botplay' | "Включиtь Режим Боtа":
 					PlayState.instance.cpuControlled = !PlayState.instance.cpuControlled;
 					PlayState.changedDifficulty = true;
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
-				case "Exit to menu":
+				case "Exit to menu" | "Выйtи в меню":
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 
@@ -363,6 +393,18 @@ class PauseSubState extends MusicBeatSubstate
 				skipTimeTracker = item;
 				add(skipTimeText);
 
+				updateSkipTextStuff();
+				updateSkipTimeText();
+			}
+			if(menuItems[i] == 'Пропусtиtь Время')
+			{
+				skipTimeText = new FlxText(0, 0, 0, '', 64);
+				skipTimeText.setFormat(Paths.font("vcr.ttf"), 64, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				skipTimeText.scrollFactor.set();
+				skipTimeText.borderSize = 2;
+				skipTimeTracker = item;
+				add(skipTimeText);
+	
 				updateSkipTextStuff();
 				updateSkipTimeText();
 			}

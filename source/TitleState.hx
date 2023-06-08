@@ -16,7 +16,7 @@ import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 #if MODS_ALLOWED
 import sys.FileSystem;
-import sys.io.File;
+import /*SUtil.getStorageDirectory() + */sys.io.File;
 #end
 import options.GraphicsSettingsSubState;
 //import flixel.graphics.FlxGraphic;
@@ -83,7 +83,11 @@ class TitleState extends MusicBeatState
 	var titleJSON:TitleData;
 
 	public static var updateVersion:String = '';
-
+	
+	#if android
+FlxG.android.preventDefaultKeys = [BACK];
+#end
+#if android || FlxG.android.justReleased.BACK #end
 	override public function create():Void
 	{
 		Paths.clearStoredMemory();
