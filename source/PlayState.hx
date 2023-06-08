@@ -4116,7 +4116,7 @@ class PlayState extends MusicBeatState
                 Paths.image("combo");
         }
  
-        if (ClientPrefs.language)
+        if (ClientPrefs.language == "ru")
         {
             rus = 'rateru/';
         }
