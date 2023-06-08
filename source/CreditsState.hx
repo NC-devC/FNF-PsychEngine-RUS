@@ -87,14 +87,14 @@ class CreditsState extends MusicBeatState
 		{
 			case 'ru':
 				pisspoop = [
-					['Команда переводчиков'],
+					['Komанда пepeвoдчиkoв'],
 					['NC',					'rus/neocat',		'Фанатский перевод Psych Engine, код и тд. Ссылка ведёт на геймджолт.',		'https://gamejolt.com/@DragonK',	'444444'],
 					['Smixels2',			'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',				'https://twitter.com/SMixels2',	'444444'],
 					['Ender69',				'rus/ender',		'Шрифт, код',													'https://www.youtube.com/@ender69funk',	'444444'],
 					['Demonerror/RetroDemon',				'rus/derror',		'Кто-то, тестеровщик',													'https://www.youtube.com/@DEMOHERROR-1',	'444444'],
 					['Psych Engine Team'],
 					['Shadow Mario',		'shadowmario',		'Главный программист Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
-					['RiverOaken',			'river',			'Главный художник/аниматор Psych Engine',						'https://twitter.com/RiverOaken',		'B42F71'],
+					['Riveren',				'river',			'Главный художник/аниматор Psych Engine',						'https://twitter.com/RiverOaken',		'B42F71'],
 					['shubs',				'shubs',			'Программист Psych Engine',										'https://twitter.com/yoshubs',			'5E99DF'],
 					[''],
 					['Former Engine Members'],
@@ -123,7 +123,7 @@ class CreditsState extends MusicBeatState
 					['Ender69',				'rus/ender',		'Font, code',													'https://www.youtube.com/@ender69funk',	'444444'],
 					['Psych Engine Team'],
 					['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
-					['RiverOaken',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
+					['Riveren',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
 					['shubs',				'shubs',			'Additional Programmer of Psych Engine',						'https://twitter.com/yoshubs',			'5E99DF'],
 					[''],
 					['Former Engine Members'],

@@ -50,6 +50,13 @@ class FPS extends TextField
 		autoSize = LEFT;
 		multiline = true;
 		text = "FPS: ";
+		switch(ClientPrefs.language)
+		{
+			case 'ru':
+				text = "ФПС: ";
+			default:
+				text = "FPS: ";
+		}
 
 		cacheCount = 0;
 		currentTime = 0;
@@ -82,12 +89,24 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "FPS: " + currentFPS;
+			switch(ClientPrefs.language)
+			{
+				case 'ru':
+					text = "ФПС: " + currentFPS;
+				default:
+					text = "FPS: " + currentFPS;
+			}
 			var memoryMegas:Float = 0;
 			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
-			text += "\nMemory: " + memoryMegas + " MB";
+			switch(ClientPrefs.language)
+			{
+			case 'ru':
+				text += "\nПамять: " + memoryMegas + " МБ";
+			default:
+				text += "\nMemory: " + memoryMegas + " MB";
+			}
 			#end
 
 			textColor = 0xFFFFFFFF;
