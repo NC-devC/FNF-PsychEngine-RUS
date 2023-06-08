@@ -386,7 +386,7 @@ class Controls extends FlxActionSet
 	#end
 		
 		
-		#if mobile
+	#if mobile
 	public var trackedInputsUI:Array<FlxActionInput> = [];
 	public var trackedInputsNOTES:Array<FlxActionInput> = [];
 
