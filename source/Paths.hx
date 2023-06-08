@@ -293,7 +293,7 @@ class Paths
 			return true;
 		}
 		#end
-
+		
 		if(OpenFlAssets.exists(getPath(key, type))) {
 			return true;
 		}
