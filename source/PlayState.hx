@@ -4100,13 +4100,12 @@ class PlayState extends MusicBeatState
 
 		var rus:String = '';
 
-		if (ClientPrefs.language == "ru")
+		switch(ClientPrefs.language)
 		{
-			rus = 'rateru/';
-		}
-		else
-		{
-			rus = '';
+			case 'ru':
+				rus = "rateru/";
+			default:
+				rus = "";
 		}
 
         switch(ClientPrefs.language)
