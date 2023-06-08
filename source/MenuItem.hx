@@ -6,6 +6,11 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 
+#if sys
+import sys.FileSystem;
+import sys.io.File;
+#end
+
 class MenuItem extends FlxSprite
 {
 	public var targetY:Float = 0;
@@ -14,7 +19,13 @@ class MenuItem extends FlxSprite
 	public function new(x:Float, y:Float, weekName:String = '')
 	{
 		super(x, y);
-		loadGraphic(Paths.image('storymenu/' + weekName));
+		switch(ClientPrefs.language)
+		{
+			case 'ru':	
+				loadGraphic(Paths.image('storymenu/ru/' + weekName));	
+			default:
+				loadGraphic(Paths.image('storymenu/' + weekName));
+		}
 		//trace('Test added: ' + WeekData.getWeekNumber(weekNum) + ' (' + weekNum + ')');
 		antialiasing = ClientPrefs.globalAntialiasing;
 	}
