@@ -4097,6 +4097,30 @@ class PlayState extends MusicBeatState
 	{
 		var pixelShitPart1:String = '';
 		var pixelShitPart2:String = '';
+
+		var rus:String = '';
+
+        switch(ClientPrefs.language)
+        {
+            case 'ru':
+                Paths.image(rus + "sick");
+                Paths.image(rus + "good");
+                Paths.image(rus + "bad");
+                Paths.image(rus + "shit");
+                Paths.image(rus + "combo");
+            default:
+                Paths.image("sick");
+                Paths.image("good");
+                Paths.image("bad");
+                Paths.image("shit");
+                Paths.image("combo");
+        }
+ 
+        if (ru)
+        {
+            rus = 'rateru/';
+        }
+		
 		if (isPixelStage)
 		{
 			pixelShitPart1 = 'pixelUI/';
