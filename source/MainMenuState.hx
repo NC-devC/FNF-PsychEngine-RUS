@@ -117,7 +117,7 @@ class MainMenuState extends MusicBeatState
 			switch(ClientPrefs.language)
 			{
 				case 'ru':
-					menuItem.frames = Paths.getSparrowAtlas('mainmenu_ru/menu_' + optionShit[i]	+"_ru");
+					menuItem.frames = Paths.getSparrowAtlas('mainmenu/ru/menu_' + optionShit[i]);
 				default:
 					menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			}
