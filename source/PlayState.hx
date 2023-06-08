@@ -4100,6 +4100,11 @@ class PlayState extends MusicBeatState
 
 		var rus:String = '';
 
+		if (ClientPrefs.language == "ru")
+		{
+			rus = 'rateru/';
+		}
+
         switch(ClientPrefs.language)
         {
             case 'ru':
@@ -4114,11 +4119,6 @@ class PlayState extends MusicBeatState
                 Paths.image("bad");
                 Paths.image("shit");
                 Paths.image("combo");
-        }
- 
-        if (ClientPrefs.language == "ru")
-        {
-            rus = 'rateru/';
         }
 
 		if (isPixelStage)
