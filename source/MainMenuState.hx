@@ -159,7 +159,7 @@ class MainMenuState extends MusicBeatState
 				versionShit.setFormat("vcr.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				add(versionShit);
 			default:
-				var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Russifier v" + localizationVersion, 12);
+				var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Localization v" + localizationVersion, 12);
 				versionShit.scrollFactor.set();
 				versionShit.setFormat("vcr.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				add(versionShit);
