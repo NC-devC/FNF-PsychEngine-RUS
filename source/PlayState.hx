@@ -4104,6 +4104,10 @@ class PlayState extends MusicBeatState
 		{
 			rus = 'rateru/';
 		}
+		else
+		{
+			rus = '';
+		}
 
         switch(ClientPrefs.language)
         {
