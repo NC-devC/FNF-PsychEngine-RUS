@@ -4116,11 +4116,11 @@ class PlayState extends MusicBeatState
                 Paths.image("combo");
         }
  
-        if (ru)
+        if (ClientPrefs.language)
         {
             rus = 'rateru/';
         }
-		
+
 		if (isPixelStage)
 		{
 			pixelShitPart1 = 'pixelUI/';
