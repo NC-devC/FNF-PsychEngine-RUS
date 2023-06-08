@@ -4185,11 +4185,25 @@ class PlayState extends MusicBeatState
 
 		var pixelShitPart1:String = "";
 		var pixelShitPart2:String = '';
+			
 
 		if (PlayState.isPixelStage)
 		{
 			pixelShitPart1 = 'pixelUI/';
 			pixelShitPart2 = '-pixel';
+		}
+		else
+		{
+			if(ClientPrefs.language == 'ru')
+			{
+				pixelShitPart1 = "rateru/";
+				pixelShitPart2 = "";
+			}
+			else
+			{
+				pixelShitPart1 = "";
+				pixelShitPart2 = "";
+			}
 		}
 
 		rating.loadGraphic(Paths.image(pixelShitPart1 + daRating.image + pixelShitPart2));
