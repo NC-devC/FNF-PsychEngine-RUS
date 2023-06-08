@@ -57,7 +57,13 @@ class MainMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		switch(ClientPrefs.language)
+		{
+			case 'ru':
+				DiscordClient.changePresence("В меню", null);
+			default:
+				DiscordClient.changePresence("In the Menus", null);
+		}
 		#end
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
