@@ -11,7 +11,10 @@ import flixel.input.FlxPointer;
 import flixel.input.IFlxInput;
 import flixel.input.touch.FlxTouch;
 import flixel.math.FlxPoint;
-import flixel.sound.FlxSound;
+#if FLX_SOUND_SYSTEM
+//import flixel.sound.FlxSound;
+import flixel.system.FlxSound;
+#end
 import flixel.text.FlxText;
 import flixel.util.FlxDestroyUtil;
 
