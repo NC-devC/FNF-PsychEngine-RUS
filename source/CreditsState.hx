@@ -88,10 +88,10 @@ class CreditsState extends MusicBeatState
 			case 'ru':
 				pisspoop = [
 					['Komанда пepeвoдчиkoв'],
-					['NC',					'rus/neocat',		'Фанатский перевод Psych Engine, код и тд. Ссылка ведёт на геймджолт.',		'https://gamejolt.com/@DragonK',	'444444'],
-					['Smixels2',			'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',				'https://twitter.com/SMixels2',	'444444'],
+					['NC',					'rus/neocat',		'Фанатский перевод Psych Engine, код и тд. Ссылка ведёт на геймджолт.','https://gamejolt.com/@DragonK',	'444444'],
+					['Smixels2',			'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',				'https://twitter.com/SMixels2'			'444444'],
 					['Ender69',				'rus/ender',		'Шрифт, код',													'https://www.youtube.com/@ender69funk',	'444444'],
-					['Demonerror/RetroDemon',				'rus/derror',		'Кто-то, тестеровщик',													'https://www.youtube.com/@DEMOHERROR-1',	'444444'],
+					['Demonerror/RetroDemon','rus/derror',		'Кто-то, тестеровщик',											'https://www.youtube.com/@DEMOHERROR-1''444444'],
 					['Psych Engine Team'],
 					['Shadow Mario',		'shadowmario',		'Главный программист Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 					['Riveren',				'river',			'Главный художник/аниматор Psych Engine',						'https://twitter.com/RiverOaken',		'B42F71'],
@@ -118,10 +118,10 @@ class CreditsState extends MusicBeatState
 				];
 			default:
 				pisspoop = [
-					['NC',					'rus/neocat',		'Fan translation of Psych Engine, code, etc. The link leads to gamejolt','https://gamejolt.com/@DragonK',		'444444'],
+					['NC',					'rus/neocat',		'Fan translation of Psych Engine, code, etc. The link leads to gamejolt','https://gamejolt.com/@DragonK','444444'],
 					['Smixels2',			'rus/smixels',		'Artist for credits, font, image translation.',					'https://twitter.com/SMixels2',			'444444'],
 					['Ender69',				'rus/ender',		'Font, code',													'https://www.youtube.com/@ender69funk',	'444444'],
-					['Demonerror/RetroDemon',				'rus/derror',		'Кто-то, тестеровщик',													'https://www.youtube.com/@DEMOHERROR-1',	'444444'],
+					['Demonerror/RetroDemon',					'rus/derror',		'Кто-то, тестеровщик',						'https://www.youtube.com/@DEMOHERROR-1','444444'],
 					['Psych Engine Team'],
 					['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 					['Riveren',				'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
