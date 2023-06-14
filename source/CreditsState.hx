@@ -88,7 +88,7 @@ class CreditsState extends MusicBeatState
 			case 'ru':
 				pisspoop = [
 					['Komанда пepeвoдчиkoв'],
-					['NC',					'rus/neocat',		'Фанатский перевод Psych Engine, код и тд.',					'https://gamejolt.com/@DragonK',		'F5F5F5'],
+					['NC/DragonK',			'rus/neocat',		'Фанатский перевод Psych Engine, код и тд.',					'https://gamejolt.com/@DragonK',		'F5F5F5'],
 					['Smixels2',			'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',				'https://twitter.com/SMixels2',			'4D96CC'],
 					['Ender69',				'rus/ender',		'Шрифт, код',													'https://www.youtube.com/@ender69funk',	'4D96CC'],
 					['Demonerror/RetroDemon','rus/derror',		'Кто-то, тестеровщик',											'https://www.youtube.com/@DEMOHERROR-1','2D006D'],
@@ -119,7 +119,7 @@ class CreditsState extends MusicBeatState
 				];
 			default:
 				pisspoop = [
-					['NC',					'rus/neocat',		'Fan translation of Psych Engine, code, etc.',					'https://gamejolt.com/@DragonK',		'F5F5F5'],
+					['NC/DragonK',			'rus/neocat',		'Fan translation of Psych Engine, code, etc.',					'https://gamejolt.com/@DragonK',		'F5F5F5'],
 					['Smixels2',			'rus/smixels',		'Artist for credits, font, image translation.',					'https://twitter.com/SMixels2',			'4D96CC'],
 					['Ender69',				'rus/ender',		'Font, code',													'https://www.youtube.com/@ender69funk',	'4D96CC'],
 					['Demonerror/RetroDemon','rus/derror',		'Tester',														'https://www.youtube.com/@DEMOHERROR-1','2D006D'],
