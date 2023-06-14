@@ -1,4 +1,4 @@
-# Friday Night Funkin' - Psych Engine руссификатор
+# Friday Night Funkin' - Psych Engine руссификатор (Версия 1.0)
 
 В настоящее время ведётся перевод версии 0.6.3.
 
