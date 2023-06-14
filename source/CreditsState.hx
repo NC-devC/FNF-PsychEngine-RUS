@@ -123,7 +123,7 @@ class CreditsState extends MusicBeatState
 					['Smixels2',			'rus/smixels',		'Artist for credits, font, image translation.',					'https://twitter.com/SMixels2',			'4D96CC'],
 					['Ender69',				'rus/ender',		'Font, code',													'https://www.youtube.com/@ender69funk',	'4D96CC'],
 					['Demonerror/RetroDemon','rus/derror',		'Tester',														'https://www.youtube.com/@DEMOHERROR-1','2D006D'],
-					['Kitiket',					'rus/kit',		'Rus Alphabet Artist',											'https://www.youtube.com/@prostogoogle','F5F5F5'],
+					['Kitiket',				'rus/kit',			'Rus Alphabet Artist',											'https://www.youtube.com/@prostogoogle','F5F5F5'],
 					[],
 					['Psych Engine Team'],
 					['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
