@@ -632,20 +632,42 @@ class TitleState extends MusicBeatState
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
-					#if PSYCH_WATERMARKS
-					createCoolText(['Psych Engine by'], 15);
-					#else
-					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
-					#end
+					switch(ClientPrefs.language)
+					{
+						case 'ru':
+							#if PSYCH_WATERMARKS
+							createCoolText(['Psych Engine ot'], 15);
+							#else
+							createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+							#end
+						default:
+							#if PSYCH_WATERMARKS
+							createCoolText(['Psych Engine by'], 15);
+							#else
+							createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+							#end
+					}
 				// credTextShit.visible = true;
 				case 4:
-					#if PSYCH_WATERMARKS
-					addMoreText('Shadow Mario', 15);
-					addMoreText('RiverOaken', 15);
-					addMoreText('shubs', 15);
-					#else
-					addMoreText('present');
-					#end
+					switch(ClientPrefs.language)
+					{
+						case 'ru':
+							#if PSYCH_WATERMARKS
+							addMoreText('Shadow Mario', 15);
+							addMoreText('RiverOaken', 15);
+							addMoreText('shubs', 15);
+							#else
+							addMoreText('преставляет');
+							#end
+						default:
+							#if PSYCH_WATERMARKS
+							addMoreText('Shadow Mario', 15);
+							addMoreText('RiverOaken', 15);
+							addMoreText('shubs', 15);
+							#else
+							addMoreText('present');
+							#end
+					}
 				// credTextShit.text += '\npresent...';
 				// credTextShit.addText();
 				case 5:

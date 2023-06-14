@@ -88,10 +88,11 @@ class CreditsState extends MusicBeatState
 			case 'ru':
 				pisspoop = [
 					['Komанда пepeвoдчиkoв'],
-					['NC',					'rus/neocat',		'Фанатский перевод Psych Engine, код и тд. Ссылка ведёт на геймджолт.','https://gamejolt.com/@DragonK',	'444444'],
-					['Smixels2',			'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',				'https://twitter.com/SMixels2'			'444444'],
-					['Ender69',				'rus/ender',		'Шрифт, код',													'https://www.youtube.com/@ender69funk',	'444444'],
-					['Demonerror/RetroDemon','rus/derror',		'Кто-то, тестеровщик',											'https://www.youtube.com/@DEMOHERROR-1''444444'],
+					['NC/DragonK',			'rus/neocat',		'Фанатский перевод Psych Engine, код и тд.',				'https://gamejolt.com/@DragonK',		'F5F5F5'],
+					['Smixels2',			'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',				'https://twitter.com/SMixels2',			'4D96CC'],
+					['Ender69',				'rus/ender',		'Шрифт, код',													'https://www.youtube.com/@ender69funk',	'32D700'],
+					['Demonerror/RetroDemon','rus/derror',		'Кто-то, тестеровщик',											'https://www.youtube.com/@DEMOHERROR-1','2D006D'],
+					['Kitiket',				'rus/kitiket',		'Русский алфабит артист',										'https://www.youtube.com/@prostogoogle','F5F5F5'],
 					['Psych Engine Team'],
 					['Shadow Mario',		'shadowmario',		'Главный программист Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 					['Riveren',				'river',			'Главный художник/аниматор Psych Engine',						'https://twitter.com/RiverOaken',		'B42F71'],
@@ -118,10 +119,11 @@ class CreditsState extends MusicBeatState
 				];
 			default:
 				pisspoop = [
-					['NC',					'rus/neocat',		'Fan translation of Psych Engine, code, etc. The link leads to gamejolt','https://gamejolt.com/@DragonK','444444'],
-					['Smixels2',			'rus/smixels',		'Artist for credits, font, image translation.',					'https://twitter.com/SMixels2',			'444444'],
-					['Ender69',				'rus/ender',		'Font, code',													'https://www.youtube.com/@ender69funk',	'444444'],
-					['Demonerror/RetroDemon',					'rus/derror',		'Кто-то, тестеровщик',						'https://www.youtube.com/@DEMOHERROR-1','444444'],
+					['NC/DragonK',			'rus/neocat',		'Fan translation of Psych Engine, code, etc.',					'https://gamejolt.com/@DragonK',		'F5F5F5'],
+					['Smixels2',			'rus/smixels',		'Artist for credits, font, image translation.',					'https://twitter.com/SMixels2',			'4D96CC'],
+					['Ender69',				'rus/ender',		'Font, code',													'https://www.youtube.com/@ender69funk',	'32D700'],
+					['Demonerror/RetroDemon','rus/derror',		'Tester',														'https://www.youtube.com/@DEMOHERROR-1','2D006D'],
+					['Kitiket',				'rus/kitiket',		'Rus alphabet artist',											'https://www.youtube.com/@prostogoogle','F5F5F5'],
 					['Psych Engine Team'],
 					['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 					['Riveren',				'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
