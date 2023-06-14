@@ -89,7 +89,7 @@ class CreditsState extends MusicBeatState
 				pisspoop = [
 					['Komанда пepeвoдчиkoв'],
 					['NC',					'rus/neocat',		'Фанатский перевод Psych Engine, код и тд. Ссылка ведёт на геймджолт.','https://gamejolt.com/@DragonK',	'444444'],
-					['Smixels2',			'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',				'https://twitter.com/SMixels2'			'444444'],
+					['Smixels2',			'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',				'https://twitter.com/SMixels2',			'444444'],
 					['Ender69',				'rus/ender',		'Шрифт, код',													'https://www.youtube.com/@ender69funk',	'444444'],
 					['Demonerror/RetroDemon','rus/derror',		'Кто-то, тестеровщик',											'https://www.youtube.com/@DEMOHERROR-1''444444'],
 					['Psych Engine Team'],
