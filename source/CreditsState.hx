@@ -87,7 +87,7 @@ class CreditsState extends MusicBeatState
 		{
 			case 'ru':
 				pisspoop = [
-					['Komанда пepeвoдчиkoв'],
+					['Komаhда пepeвoдчиkoв'],
 					['NC/DragonK',			'rus/neocat',		'Фанатский перевод Psych Engine, код и тд.',					'https://gamejolt.com/@DragonK',		'F5F5F5'],
 					['Smixels2',			'rus/smixels',		'Аватарка для credits, шрифт, перевод картинок.',				'https://twitter.com/SMixels2',			'4D96CC'],
 					['Ender69',				'rus/ender',		'Шрифт, код',													'https://www.youtube.com/@ender69funk',	'4D96CC'],
