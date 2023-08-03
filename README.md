@@ -1,3 +1,20 @@
+# Friday Night Funkin' Psych Engine перевод на русский!
+
+Список изменений:
+Порт на psych engine 0.7.1h
+Перевод на недели теперь действует на обоих языках.
+Некоторые части переведены подробнее, а так же менее багованно: 
+К примеру, рейтинги теперь имеют 2 части, физическую - она идет всем модам, что избегает баги и фейковую(перевод) - она отвечает за перевод рейтингов.
+
+Перевод версии 1.1.0, который был портирован на движок psych engine версии 0.7.1h! Играйте в новые моды с красивыми стрелочками!
+Команда переводчиков:
+NC - Фанатский перевод Psych Engine, код и так далее.
+SMixels2 - Художник, сделал изображения для титров, шрифт, перевод изображений.
+Ender69 - Шрифт и код, некоторые части перевёл он.
+Особые благодарности:
+Kitiket - Художник русского алфавита
+RetroDemon - Тестер.
+
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 
