@@ -5,7 +5,9 @@ import backend.StageData;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Language'];
+	var options:Array<String> = [];
+	var optionsEn:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Language'];
+	var optionsRu:Array<String> = ['Цвета Нот', 'Управление', 'Регулировка Задержки и Комбо', 'Графика', 'Визуал и Интерфейс', 'Геймплей', 'Язык'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -13,19 +15,19 @@ class OptionsState extends MusicBeatState
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
-			case 'Note Colors':
+			case 'Note Colors' | 'Цвета Нот':
 				openSubState(new options.NotesSubState());
-			case 'Controls':
+			case 'Controls' | 'Управление':
 				openSubState(new options.ControlsSubState());
-			case 'Graphics':
+			case 'Graphics' | 'Графика':
 				openSubState(new options.GraphicsSettingsSubState());
-			case 'Visuals and UI':
+			case 'Visuals and UI' | 'Визуал и Интерфейс':
 				openSubState(new options.VisualsUISubState());
-			case 'Gameplay':
+			case 'Gameplay' | 'Геймплей':
 				openSubState(new options.GameplaySettingsSubState());
-			case 'Adjust Delay and Combo':
+			case 'Adjust Delay and Combo' | 'Регулировка Задержки и Комбо':
 				MusicBeatState.switchState(new options.NoteOffsetState());
-			case 'Language':
+			case 'Language' | 'Язык':
 				MusicBeatState.switchState(new options.LanguageOptionsSubState());
 		}
 	}
@@ -37,6 +39,14 @@ class OptionsState extends MusicBeatState
 		#if desktop
 		DiscordClient.changePresence("Options Menu", null);
 		#end
+
+		switch(ClientPrefs.data.language)
+		{
+			case 'Russian':
+				options = optionsRu;
+			default:
+				options = optionsEn;
+		}
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
