@@ -7,36 +7,14 @@ class LanguageOptionsSubState extends BaseOptionsMenu
         title = 'Language Settings';
         rpcTitle = 'Language Settings Menu'; //for Discord Rich Presence
     
-        switch(ClientPrefs.data.language)
-        {
-            case 'Russian':
-                var option:Option = new Option('Язык:',
-                    "Выберите язык для игры.",
-                    'language',
-                    'string',
-                    ['English', 'Russian']);
-                addOption(option);
-            default:
-                var option:Option = new Option('Language:',
-                    "Select your language for game.",
-                    'language',
-                    'string',
-                    ['English', 'Russian']);
-                addOption(option);
-        }
+        var option:Option = new Option('Language:',
+            "Select your language for game.",
+            'language',
+            'string',
+            ['English', 'Russian']);
+        addOption(option);
 
         super();
-    }
-
-    override function update(elapsed:Float)
-    {
-        if(FlxG.keys.justPressed.ESCAPE || FlxG.gamepads.anyJustPressed(B))
-		{
-			close();
-			return;
-		}
-
-        super.update(elapsed);
     }
 
     function onChangeHitsoundVolume()
