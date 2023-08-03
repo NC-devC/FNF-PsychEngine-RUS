@@ -97,10 +97,20 @@ class WeekData {
 		var originalLength:Int = directories.length;
 		#end
 
-		var sexList:Array<String> = CoolUtil.coolTextFile(Paths.getPreloadPath('weeks/weekList.txt'));
+		var sexList:Array<String>;
+		var directory:String = "weeks";
+		switch(ClientPrefs.data.language)
+		{
+			case 'Russian':
+				sexList = CoolUtil.coolTextFile(Paths.getPreloadPath('weeksru/weekList.txt'));
+				directory = "weeks";
+			default:
+				sexList = CoolUtil.coolTextFile(Paths.getPreloadPath('weeksru/weekList.txt'));
+				directory = "weeksru";
+		}
 		for (i in 0...sexList.length) {
 			for (j in 0...directories.length) {
-				var fileToCheck:String = directories[j] + 'weeks/' + sexList[i] + '.json';
+				var fileToCheck:String = directories[j] + directory+'/' + sexList[i] + '.json';
 				if(!weeksLoaded.exists(sexList[i])) {
 					var week:WeekFile = getWeekFile(fileToCheck);
 					if(week != null) {

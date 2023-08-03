@@ -81,7 +81,7 @@ class StoryMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		switch(ClientPrefs.language)
+		switch(ClientPrefs.data.language)
 		{
 			case "ru":
 				DiscordClient.changePresence("В меню истории", null);

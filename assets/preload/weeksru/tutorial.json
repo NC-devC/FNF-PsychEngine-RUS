@@ -10,7 +10,7 @@
 	],
 	"weekBackground": "stage",
 
-	"storyName": "Tutorial",
+	"storyName": "Обучение",
 	"weekBefore": "tutorial",
 	"weekName": "Tutorial",
 	"startUnlocked": true,
