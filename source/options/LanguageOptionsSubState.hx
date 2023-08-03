@@ -2,28 +2,28 @@ package options;
 
 class LanguageOptionsSubState extends BaseOptionsMenu
 {
-    public function new()
-    {
-        title = 'Language Settings';
-        rpcTitle = 'Language Settings Menu'; //for Discord Rich Presence
-    
-        var option:Option = new Option('Language:',
-            "Select your language for game.",
-            'language',
-            'string',
-            ['English', 'Russian']);
-        addOption(option);
+	public function new()
+	{
+		title = 'Language Settings';
+		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
 
-        super();
-    }
+		var option:Option = new Option('Game language:',
+			"Your language?",
+			'language',
+			'string',
+			['Russian', 'English']);
+		addOption(option);
 
-    function onChangeHitsoundVolume()
-    {
-        FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.data.hitsoundVolume);
-    }
-    
-    function onChangeAutoPause()
-    {
-        FlxG.autoPause = ClientPrefs.data.autoPause;
-    }
+		super();
+	}
+
+	function onChangeHitsoundVolume()
+	{
+		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.data.hitsoundVolume);
+	}
+
+	function onChangeAutoPause()
+	{
+		FlxG.autoPause = ClientPrefs.data.autoPause;
+	}
 }
