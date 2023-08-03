@@ -28,6 +28,17 @@ class LanguageOptionsSubState extends BaseOptionsMenu
         super();
     }
 
+    override function update(elapsed:Float)
+    {
+        if(FlxG.keys.justPressed.ESCAPE || FlxG.gamepads.anyJustPressed(B))
+		{
+			close();
+			return;
+		}
+
+        super.update(elapsed);
+    }
+
     function onChangeHitsoundVolume()
     {
         FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.data.hitsoundVolume);
