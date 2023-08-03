@@ -43,7 +43,16 @@ class CreditsState extends MusicBeatState
 		for (mod in Mods.parseList().enabled) pushModCreditsToList(mod);
 		#end
 
-		var defaultList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+		var defaultList:Array<Array<String>> = [];
+
+		var englishList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['Psych Engine: Russian Localization Team'],
+			['NC/DragonK',			'rus/neocat',		'Fan translation of Psych Engine, code, etc.',					'https://gamejolt.com/@DragonK',		'F5F5F5'],
+			['SMixels2',			'rus/smixels',		'Artist for credits, font, image translation.',					'https://twitter.com/SMixels2',			'4D96CC'],
+			['Ender69',				'rus/ender',		'Font, code',													'https://www.youtube.com/@ender69funk',	'4D96CC'],
+			['Demonerror/RetroDemon','rus/derror',		'Tester',														'https://www.youtube.com/@DEMOHERROR-1','2D006D'],
+			['kitiket',				'rus/kit',			'Rus Alphabet Artist',											'https://www.youtube.com/@prostogoogle','F5F5F5'],
+			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 			['Riveren',				'riveren',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/riverennn',		'B42F71'],
@@ -68,6 +77,8 @@ class CreditsState extends MusicBeatState
 			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
 			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7']
 		];
+
+		defaultList = englishList;
 		
 		for(i in defaultList) {
 			creditsStuff.push(i);
