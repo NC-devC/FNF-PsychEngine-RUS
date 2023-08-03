@@ -327,6 +327,14 @@ class AlphaCharacter extends FlxSprite
 		'|'  => null,
 		'~'  => {offsets: [0, 16], offsetsBold: [0, 20]},
 
+		//Russian alphabet(Русский алфавит)
+		'а' => null, 'б' => null, 'в' => null, 'г' => null, 'д' => null, 'е' => null,
+		'ё' => null, 'ж' => null, 'з' => null, 'и' => null, 'й' => null, 'к' => null,
+		'л' => null, 'м' => null, 'н' => null, 'о' => null, 'п' => null, 'р' => null,
+		'с' => null, 'т' => null, 'у' => null, 'ф' => null, 'х' => null, 'ц' => null,
+		'ч' => null, 'ш' => null, 'щ' => null, 'ъ' => null, 'ы' => null, 'ь' => null,
+		'э' => null, 'ю' => null, 'я' => null,
+
 		//additional symbols
 		'¡'  => {anim: 'inverted exclamation', offsets: [0, -20], offsetsBold: [0, -20]},
 		'¿'  => {anim: 'inverted question', offsets: [0, -20], offsetsBold: [0, -20]},
@@ -345,7 +353,13 @@ class AlphaCharacter extends FlxSprite
 	public function new()
 	{
 		super(x, y);
-		image = 'alphabet';
+		switch(character.toLowerCase())
+		{
+			case 'а' | "б" | "в" | "г" | "д" | "е" | "ё" | "ж" | "з" | 'и' | "й" | "к" | "л" | "м" | "о" | "п" | "р" | "н" | "с" | "т" | "у" | "ф" | "х" | "ц" | "ч" | "ш" | "щ" | "ъ" | "ы" | "ь" | "э" | "ю" | "я":
+				image = 'alphabet_rus';
+			default:
+				image = 'alphabet';
+		}
 		antialiasing = ClientPrefs.data.antialiasing;
 	}
 	
