@@ -95,6 +95,32 @@ class PlayState extends MusicBeatState
 		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
+	public static var ratingsEN:Array<Dynamic> = [
+		['You Suck!', "You Suck!"],
+		['Shit', "Shit"],
+		['Bad', "Bad"],
+		['Bruh', "Bruh"],
+		['Meh', "Meh"],
+		['Nice', "Nice"],
+		['Good', "Good"],
+		['Great', "Great"],
+		['Sick!', "Sick!"],
+		['Perfect!!', "Perfect!!"]
+	];
+
+	public static var ratingsRU:Array<Dynamic> = [
+		['You Suck!', "Ты отстой!"],
+		['Shit', "Дерьмо"],
+		['Bad', "Ужасно"],
+		['Bruh', "Братан"],
+		['Meh', "Так себе"],
+		['Nice', "Клёво"],
+		['Good', "Хорошо"],
+		['Great', "Отлично"],
+		['Sick!', "Крутой!"],
+		['Perfect!!', "Идеально!!"]
+	];
+
 	//event variables
 	private var isCameraOnForcedPos:Bool = false;
 
@@ -1124,16 +1150,24 @@ class PlayState extends MusicBeatState
 
 	public function updateScore(miss:Bool = false)
 	{
-		var str:String = ratingName;
+		var str:String = ratingNameFake;
 		if(totalPlayed != 0)
 		{
 			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
 			str += ' ($percent%) - $ratingFC';
 		}
 
-		scoreTxt.text = 'Score: ' + songScore
-		+ ' | Misses: ' + songMisses
-		+ ' | Rating: ' + str;
+		switch(ClientPrefs.data.language)
+		{
+			case 'Russian':
+				scoreTxt.text = 'Очки: ' + songScore
+				+ ' | Промахи: ' + songMisses
+				+ ' | Рейтинг: ' + str;
+			default:
+				scoreTxt.text = 'Score: ' + songScore
+				+ ' | Misses: ' + songMisses
+				+ ' | Rating: ' + str;
+		}
 
 		if(ClientPrefs.data.scoreZoom && !miss && !cpuControlled)
 		{
@@ -3336,6 +3370,7 @@ class PlayState extends MusicBeatState
 	}
 
 	public var ratingName:String = '?';
+	public var ratingNameFake:String = '?';
 	public var ratingPercent:Float;
 	public var ratingFC:String;
 	public function RecalculateRating(badHit:Bool = false) {
@@ -3363,6 +3398,24 @@ class PlayState extends MusicBeatState
 							ratingName = ratingStuff[i][0];
 							break;
 						}
+
+				switch(ClientPrefs.data.language)
+				{
+					case 'Russian':
+						for (i in 0...ratingStuff.length-1)
+							if(ratingPercent < ratingStuff[i][1])
+							{
+								ratingNameFake = ratingsRU[i][1];
+								break;
+							}
+					default:
+						for (i in 0...ratingStuff.length-1)
+							if(ratingPercent < ratingStuff[i][1])
+							{
+								ratingNameFake = ratingsEN[i][1];
+								break;
+							}
+				}
 			}
 			fullComboFunction();
 		}

@@ -81,7 +81,13 @@ class StoryMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		switch(ClientPrefs.language)
+		{
+			case "ru":
+				DiscordClient.changePresence("В меню истории", null);
+			default:
+				DiscordClient.changePresence("In the story menu", null);
+		}
 		#end
 
 		var num:Int = 0;
@@ -190,7 +196,13 @@ class StoryMenuState extends MusicBeatState
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, FlxMath.bound(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
 
-		scoreText.text = "WEEK SCORE:" + lerpScore;
+		switch(ClientPrefs.data.language)
+		{
+			case 'Russian':
+				scoreText.text = "ОЧКИ НЕДЕЛИ:" + lerpScore;
+			default:
+				scoreText.text = "WEEK SCORE:" + lerpScore;
+		}
 
 		// FlxG.watch.addQuick('font', scoreText.font);
 

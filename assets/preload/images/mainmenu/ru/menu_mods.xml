@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="menu_mods.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="mods basic0000" x="10" y="10" width="410" height="133" frameX="0" frameY="0" frameWidth="411" frameHeight="133"/>
+	<SubTexture name="mods basic0001" x="10" y="10" width="410" height="133" frameX="0" frameY="0" frameWidth="411" frameHeight="133"/>
+	<SubTexture name="mods basic0002" x="10" y="10" width="410" height="133" frameX="0" frameY="0" frameWidth="411" frameHeight="133"/>
+	<SubTexture name="mods basic0003" x="430" y="10" width="411" height="133"/>
+	<SubTexture name="mods basic0004" x="430" y="10" width="411" height="133"/>
+	<SubTexture name="mods basic0005" x="430" y="10" width="411" height="133"/>
+	<SubTexture name="mods basic0006" x="10" y="153" width="411" height="132" frameX="0" frameY="-1" frameWidth="411" frameHeight="133"/>
+	<SubTexture name="mods basic0007" x="10" y="153" width="411" height="132" frameX="0" frameY="-1" frameWidth="411" frameHeight="133"/>
+	<SubTexture name="mods basic0008" x="10" y="153" width="411" height="132" frameX="0" frameY="-1" frameWidth="411" frameHeight="133"/>
+	<SubTexture name="mods white0000" x="431" y="153" width="460" height="181" frameX="0" frameY="-3" frameWidth="462" frameHeight="184"/>
+	<SubTexture name="mods white0001" x="10" y="344" width="460" height="181" frameX="0" frameY="-3" frameWidth="462" frameHeight="184"/>
+	<SubTexture name="mods white0002" x="480" y="344" width="462" height="184"/>
+</TextureAtlas>

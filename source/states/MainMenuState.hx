@@ -100,7 +100,13 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+			switch(ClientPrefs.data.language)
+			{
+				case 'Russian':
+					menuItem.frames = Paths.getSparrowAtlas('mainmenu/ru/menu_' + optionShit[i]);
+				default:
+					menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+			}
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
