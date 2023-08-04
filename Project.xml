@@ -70,8 +70,8 @@
 		<assets path="assets/secrets" rename="assets" exclude="*.mp3"  unless="web"/>
 	</section>
 
-	<!-- DONT ENABLE THIS -->
-	<define name="CHECK_FOR_UPDATES" if="desktop officialBuild"/>
+	<!-- Not now. -->
+	<!-- <define name="CHECK_FOR_UPDATES" if="desktop officialBuild"/> -->
 
 	<!-- Week Assets -->
 	<library name="videos"        preload="true" />

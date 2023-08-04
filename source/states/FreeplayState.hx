@@ -236,7 +236,13 @@ class FreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 		}
 
-		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				scoreText.text = 'ЛУЧШИЙ РЕЗУЛЬТАТ: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+			default:
+				scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		}
 		positionHighscore();
 
 		var shiftMult:Int = 1;
