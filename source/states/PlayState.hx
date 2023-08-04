@@ -956,10 +956,21 @@ class PlayState extends MusicBeatState
 	function cacheCountdown()
 	{
 		var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
-		var introImagesArray:Array<String> = switch(stageUI) {
-			case "pixel": ['${stageUI}UI/ready-pixel', '${stageUI}UI/set-pixel', '${stageUI}UI/date-pixel'];
-			case "normal": ["ready", "set" ,"go"];
-			default: ['${stageUI}UI/ready', '${stageUI}UI/set', '${stageUI}UI/go'];
+		var introImagesArray:Array<String>;
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				introImagesArray = switch(stageUI) {
+					case "pixel": ['${stageUI}UI/ready-pixel', '${stageUI}UI/set-pixel', '${stageUI}UI/date-pixel'];
+					case "normal": ["ru/ready", "ru/set" ,"ru/go"];
+					default: ['${stageUI}UI/ready', '${stageUI}UI/set', '${stageUI}UI/go'];
+				}
+			default:
+				introImagesArray = switch(stageUI) {
+					case "pixel": ['${stageUI}UI/ready-pixel', '${stageUI}UI/set-pixel', '${stageUI}UI/date-pixel'];
+					case "normal": ["ready", "set" ,"go"];
+					default: ['${stageUI}UI/ready', '${stageUI}UI/set', '${stageUI}UI/go'];
+				}
 		}
 		introAssets.set(stageUI, introImagesArray);
 		var introAlts:Array<String> = introAssets.get(stageUI);
@@ -1024,10 +1035,23 @@ class PlayState extends MusicBeatState
 					dad.dance();
 
 				var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
-				var introImagesArray:Array<String> = switch(stageUI) {
-					case "pixel": ['${stageUI}UI/ready-pixel', '${stageUI}UI/set-pixel', '${stageUI}UI/date-pixel'];
-					case "normal": ["ready", "set" ,"go"];
-					default: ['${stageUI}UI/ready', '${stageUI}UI/set', '${stageUI}UI/go'];
+
+				var introImagesArray:Array<String>;
+
+				switch(ClientPrefs.data.gameLanguage)
+				{
+					case 'Russian':
+						introImagesArray = switch(stageUI) {
+							case "pixel": ['${stageUI}UI/ready-pixel', '${stageUI}UI/set-pixel', '${stageUI}UI/date-pixel'];
+							case "normal": ["ru/ready", "ru/set" ,"ru/go"];
+							default: ['${stageUI}UI/ready', '${stageUI}UI/set', '${stageUI}UI/go'];
+						}
+					default:
+						introImagesArray = switch(stageUI) {
+							case "pixel": ['${stageUI}UI/ready-pixel', '${stageUI}UI/set-pixel', '${stageUI}UI/date-pixel'];
+							case "normal": ["ready", "set" ,"go"];
+							default: ['${stageUI}UI/ready', '${stageUI}UI/set', '${stageUI}UI/go'];
+						}
 				}
 				introAssets.set(stageUI, introImagesArray);
 
@@ -2438,6 +2462,19 @@ class PlayState extends MusicBeatState
 			uiPrefix = '${stageUI}UI/';
 			if (PlayState.isPixelStage) uiSuffix = '-pixel';
 		}
+		else
+		{
+			var langPrefix:String = "";
+			switch(ClientPrefs.data.gameLanguage)
+			{
+				case 'Russian':
+					langPrefix = "ru/";
+				default:
+					langPrefix = "";
+				for (rating in ratingsData)
+					Paths.image(langPrefix + rating.image + uiSuffix);
+			}
+		}
 
 		for (rating in ratingsData)
 			Paths.image(uiPrefix + rating.image + uiSuffix);
@@ -2487,7 +2524,22 @@ class PlayState extends MusicBeatState
 			antialias = !isPixelStage;
 		}
 
-		rating.loadGraphic(Paths.image(uiPrefix + daRating.image + uiSuffix));
+		if(stageUI == "normal")
+		{
+			var langPrefix:String = "";
+			switch(ClientPrefs.data.gameLanguage)
+			{
+				case 'Russian':
+					langPrefix = "ru/";
+				default:
+					langPrefix = "";
+			}
+			rating.loadGraphic(Paths.image(uiPrefix + langPrefix + daRating.image + uiSuffix));
+		}
+		else
+		{
+			rating.loadGraphic(Paths.image(uiPrefix + daRating.image + uiSuffix));
+		}
 		rating.cameras = [camHUD];
 		rating.screenCenter();
 		rating.x = placement - 40;

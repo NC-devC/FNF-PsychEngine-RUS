@@ -9,7 +9,7 @@ class MenuItem extends FlxSprite
 	{
 		super(x, y);
 		var isDefault:Bool = false;
-		switch(weekName)
+		switch(weekName.toLowerCase())
 		{
 			case 'tutorial' | 'week1' | 'week2' | 'week3' | 'week4' | 'week5' | 'week6' | 'week7':
 				isDefault = true;
@@ -25,6 +25,10 @@ class MenuItem extends FlxSprite
 				default:
 					loadGraphic(Paths.image('storymenu/' + weekName));
 			}
+		}
+		else
+		{
+			loadGraphic(Paths.image('storymenu/' + weekName));
 		}
 		antialiasing = ClientPrefs.data.antialiasing;
 		//trace('Test added: ' + WeekData.getWeekNumber(weekNum) + ' (' + weekNum + ')');
