@@ -107,7 +107,17 @@ class PauseSubState extends MusicBeatSubstate
 		levelInfo.updateHitbox();
 		add(levelInfo);
 
-		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, Difficulty.getString().toUpperCase(), 32);
+		var stringDifficulty:String = "Normal";
+
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				stringDifficulty = Difficulty.translateDefDiffToRu(PlayState.storyDifficulty);
+			default:
+				stringDifficulty = Difficulty.getString();
+		}
+
+		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, stringDifficulty.toUpperCase(), 32);
 		levelDifficulty.scrollFactor.set();
 		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
 		levelDifficulty.updateHitbox();

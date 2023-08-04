@@ -17,6 +17,7 @@ import options.OptionsState;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.1h'; //This is also used for Discord RPC
+	public static var localizationVersion:String = '1.1.0';
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -122,6 +123,19 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0);
 
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Русификатор v" + localizationVersion, 12);
+				versionShit.scrollFactor.set();
+				versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				add(versionShit);
+			default:
+				var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Localization v" + psychEngineVersion, 12);
+				versionShit.scrollFactor.set();
+				versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				add(versionShit);
+		}
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);

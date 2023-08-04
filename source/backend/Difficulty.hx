@@ -7,6 +7,12 @@ class Difficulty
 		'Normal',
 		'Hard'
 	];
+	public static var defaultDiffsRu:Array<Dynamic> = [
+		['Easy', "Легко"],
+		['Normal', "Нормально"],
+		['Hard', "Сложно"]
+	];
+
 	public static var list:Array<String> = [];
 	private static var defaultDifficulty(default, never):String = 'Normal'; //The chart that has no suffix and starting difficulty on Freeplay/Story Mode
 
@@ -24,6 +30,11 @@ class Difficulty
 			fileSuffix = '';
 		}
 		return Paths.formatToSongPath(fileSuffix);
+	}
+
+	inline public static function translateDefDiffToRu(diffID:Int)
+	{
+		return defaultDiffsRu[diffID][1];
 	}
 
 	inline public static function loadFromWeek(week:WeekData = null)

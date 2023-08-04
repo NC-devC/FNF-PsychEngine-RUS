@@ -26,6 +26,7 @@ class FreeplayState extends MusicBeatState
 	var lerpSelected:Float = 0;
 	var curDifficulty:Int = -1;
 	private static var lastDifficultyName:String = Difficulty.getDefault();
+	private static var lastFakeDiffName:String = Difficulty.translateDefDiffToRu(1);
 
 	var scoreBG:FlxSprite;
 	var scoreText:FlxText;
@@ -428,8 +429,15 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		lastDifficultyName = Difficulty.getString(curDifficulty);
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				lastFakeDiffName = Difficulty.translateDefDiffToRu(curDifficulty);
+			default:
+				lastFakeDiffName = lastDifficultyName;
+		}
 		if (Difficulty.list.length > 1)
-			diffText.text = '< ' + lastDifficultyName.toUpperCase() + ' >';
+			diffText.text = '< ' + lastFakeDiffName.toUpperCase() + ' >';
 		else
 			diffText.text = lastDifficultyName.toUpperCase();
 
