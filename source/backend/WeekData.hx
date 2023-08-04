@@ -103,10 +103,10 @@ class WeekData {
 		{
 			case 'Russian':
 				sexList = CoolUtil.coolTextFile(Paths.getPreloadPath('weeksru/weekList.txt'));
-				directory = "weeks";
-			default:
-				sexList = CoolUtil.coolTextFile(Paths.getPreloadPath('weeksru/weekList.txt'));
 				directory = "weeksru";
+			default:
+				sexList = CoolUtil.coolTextFile(Paths.getPreloadPath('weeks/weekList.txt'));
+				directory = "weeks";
 		}
 		for (i in 0...sexList.length) {
 			for (j in 0...directories.length) {
