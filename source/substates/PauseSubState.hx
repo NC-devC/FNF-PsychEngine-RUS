@@ -1,5 +1,6 @@
 package substates;
 
+import backend.TranslationUtil;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
@@ -79,11 +80,37 @@ class PauseSubState extends MusicBeatSubstate
 		menuItems = menuItemsOG;
 
 		for (i in 0...Difficulty.list.length) {
-			var diff:String = Difficulty.getString(i);
+			var diffNoCorrect:String = Difficulty.getString(i);	
+			var diff:String = diffNoCorrect;
+			var isDefault:Bool = false;
+			switch(diffNoCorrect.toLowerCase())
+			{
+				case 'easy' | 'normal' | 'hard' | 'легко' | 'нормально' | 'сложно':
+					isDefault = true;
+				default:
+					isDefault = false;
+			}
+			if(isDefault)
+			{
+				var diffTranslate:String = diffNoCorrect;
+				switch(ClientPrefs.data.gameLanguage)
+				{
+					case 'Russian':
+						diffTranslate = TranslationUtil.ruDiffFormat(Difficulty.TranslateENToRU(diffNoCorrect));
+					default:
+						diffTranslate = diffNoCorrect;
+				}
+				diff = diffTranslate;
+			}
 			difficultyChoices.push(diff);
 		}
-		difficultyChoices.push('BACK');
-
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				difficultyChoices.push('HАЗАД');
+			default:
+				difficultyChoices.push('BACK');
+		}
 
 		pauseMusic = new FlxSound();
 		if(songName != null) {

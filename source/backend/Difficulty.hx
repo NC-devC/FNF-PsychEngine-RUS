@@ -37,6 +37,22 @@ class Difficulty
 		return defaultDiffsRu[diffID][1];
 	}
 
+	inline public static function TranslateENToRU(diff:String)
+	{
+		var index:Int = 0;
+		var returnValue:String = "Нормально";
+
+		for (i in 0...defaultDiffsRu.length)
+		{
+			if(defaultDiffsRu[i][0] == diff)
+			{
+				returnValue = defaultDiffsRu[i][1];
+			}
+		}
+
+		return returnValue;
+	}
+
 	inline public static function loadFromWeek(week:WeekData = null)
 	{
 		if(week == null) week = WeekData.getCurrentWeek();

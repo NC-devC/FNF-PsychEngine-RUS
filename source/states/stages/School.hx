@@ -111,7 +111,25 @@ class School extends BaseStage
 	var doof:DialogueBox = null;
 	function initDoof()
 	{
-		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
+		var file:String = ""; //Checks for vanilla/Senpai dialogue
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				file = Paths.txt(songName + '/' + songName + 'Dialogue-ru');
+				#if sys
+				if(!FileSystem.exists(file))
+				{
+					file = Paths.txt(songName + '/' + songName + 'Dialogue');
+				}
+				#else
+				if(!OpenFlAssets.exists(file))
+				{
+					file = Paths.txt(songName + '/' + songName + 'Dialogue');
+				}
+				#end
+			default:
+				file = Paths.txt(songName + '/' + songName + 'Dialogue');
+		}
 		#if MODS_ALLOWED
 		if (!FileSystem.exists(file))
 		#else

@@ -46,7 +46,7 @@ class CreditsState extends MusicBeatState
 		var defaultList:Array<Array<String>> = [];
 
 		var englishList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			['Psych Engine: Russian Localization Team'],
+			['Psych Engine: Russian Localization'],
 			['NC/DragonK',			'rus/neocat',		'Fan translation of Psych Engine, code, etc.',					'https://gamejolt.com/@DragonK',		'F5F5F5'],
 			['SMixels2',			'rus/smixels',		'Artist for credits, font, image translation.',					'https://twitter.com/SMixels2',			'4D96CC'],
 			['Ender69',				'rus/ender',		'Font, code',													'https://www.youtube.com/@ender69funk',	'4D96CC'],
@@ -77,8 +77,46 @@ class CreditsState extends MusicBeatState
 			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
 			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7']
 		];
+		var russianList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['Psych Engine: Pуcckий Пepeвoд'],
+			['NC/DragonK',			'rus/neocat',		'Фанатский перевод Psych Engine, код и тд.',					'https://gamejolt.com/@DragonK',		'F5F5F5'],
+			['SMixels2',			'rus/smixels',		'Художник титров, шрифт, перевод изображений.',					'https://twitter.com/SMixels2',			'4D96CC'],
+			['Ender69',				'rus/ender',		'Шрифт, код',													'https://www.youtube.com/@ender69funk',	'4D96CC'],
+			['Demonerror/RetroDemon','rus/derror',		'Тестеровщик',														'https://www.youtube.com/@DEMOHERROR-1','2D006D'],
+			['kitiket',				'rus/kit',			'Художник русского алфавита',											'https://www.youtube.com/@prostogoogle','F5F5F5'],
+			[''],
+			['Psych Engine Team'],
+			['Shadow Mario',		'shadowmario',		'Основной программист Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
+			['Riveren',				'riveren',			'Основной Художник/Аниматор Psych Engine',							'https://twitter.com/riverennn',		'B42F71'],
+			[''],
+			['Former Engine Members'],
+			['shubs',				'shubs',			'Доп-Программист Psych Engine',								'https://twitter.com/yoshubs',			'5E99DF'],
+			['bb-panzu',			'bb',				'Доп-Программист Psych Engine',								'https://twitter.com/bbsub3',			'3E813A'],
+			[''],
+			['Engine Contributors'],
+			['iFlicky',				'flicky',			'Композитор Psync и Tea Time\nСделал звуки диалогов.',		'https://twitter.com/flicky_i',			'9E29CF'],
+			['SqirraRNG',			'sqirra',			'Обработчик вылетов и основной код\n диаграммы волн в редакторе.',	'https://twitter.com/gedehari',			'E1843A'],
+			['EliteMasterEric',		'mastereric',		'Поддержка шейдеров во время выполнения',										'https://twitter.com/EliteMasterEric',	'FFBD40'],
+			['PolybiusProxy',		'proxy',			'.MP4 Библиотека Видео Загрузчик (hxCodec)',							'https://twitter.com/polybiusproxy',	'DCD294'],
+			['KadeDev',				'kade',				'Починил крутые вещи в редакторе\nи другие PRs',			'https://twitter.com/kade0912',			'64A250'],
+			['Keoiki',				'keoiki',			'Сплешы нот и Латинский Алфавит',					'https://twitter.com/Keoiki_',			'D2D2D2'],
+			['superpowers04',		'superpowers04',	'ЛУА JIT Форк',													'https://twitter.com/superpowers04',	'B957ED'],
+			['Smokey',				'smokey',			'Поддержка атласов спрайтов',											'https://twitter.com/Smokey_5_',		'483D92'],
+			[''],
+			["Funkin' Crew"],
+			['ninjamuffin99',		'ninjamuffin99',	"Программист Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
+			['PhantomArcade',		'phantomarcade',	"Аниматор Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
+			['evilsk8r',			'evilsk8r',			"Художник Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
+			['kawaisprite',			'kawaisprite',		"Композитор Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7']
+		];
 
-		defaultList = englishList;
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				defaultList = russianList;
+			default:
+				defaultList = englishList;
+		}
 		
 		for(i in defaultList) {
 			creditsStuff.push(i);
