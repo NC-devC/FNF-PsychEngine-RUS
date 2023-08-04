@@ -69,7 +69,13 @@ class ModsMenuState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
-		noModsTxt = new FlxText(0, 0, FlxG.width, "NO MODS INSTALLED\nPRESS BACK TO EXIT AND INSTALL A MOD", 48);
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				noModsTxt = new FlxText(0, 0, FlxG.width, "НЕ ОДНОГО МОДА НЕ УСТАНОВЛЕНО\nНАЖМИТЕ BACK ЧТОБЫ ВЫЙТИ И УСТАНОВИТЬ МОД", 48);
+			default:
+				noModsTxt = new FlxText(0, 0, FlxG.width, "NO MODS INSTALLED\nPRESS BACK TO EXIT AND INSTALL A MOD", 48);
+		}
 		if(FlxG.random.bool(0.1)) noModsTxt.text += '\nBITCH.'; //meanie
 		noModsTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		noModsTxt.scrollFactor.set();
@@ -92,7 +98,16 @@ class ModsMenuState extends MusicBeatState
 		//attached buttons
 		var startX:Int = 1120;
 
-		buttonToggle = new FlxButton(startX, 0, "ON", function()
+		var toggleText:String = "ON";
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				toggleText = "ВКЛ";
+			default:
+				toggleText = "ВКЛ";
+		}
+
+		buttonToggle = new FlxButton(startX, 0, toggleText, function()
 		{
 			if(mods[curSelected].restart)
 			{
@@ -139,7 +154,17 @@ class ModsMenuState extends MusicBeatState
 		setAllLabelsOffset(buttonDown, -15, 10);
 
 		startX -= 100;
-		buttonTop = new FlxButton(startX, 0, "TOP", function() {
+		var topText:String = "TOP";
+
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				topText = "ВВЕРХ";
+			default:
+				topText = "TOP";
+		}
+
+		buttonTop = new FlxButton(startX, 0, topText, function() {
 			var doRestart:Bool = (mods[0].restart || mods[curSelected].restart);
 			for (i in 0...curSelected) //so it shifts to the top instead of replacing the top one
 			{
@@ -162,7 +187,15 @@ class ModsMenuState extends MusicBeatState
 
 
 		startX -= 190;
-		buttonDisableAll = new FlxButton(startX, 0, "DISABLE ALL", function() {
+		var disAllText:String = "DISABLE ALL";
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				disAllText = "ВЫКЛЮЧИТЬ ВСЕ";
+			default:
+				disAllText = "DISABLE ALL";
+		}
+		buttonDisableAll = new FlxButton(startX, 0, disAllText, function() {
 			for (i in modsList)
 			{
 				i[1] = false;
@@ -188,7 +221,15 @@ class ModsMenuState extends MusicBeatState
 		visibleWhenHasMods.push(buttonDisableAll);
 
 		startX -= 190;
-		buttonEnableAll = new FlxButton(startX, 0, "ENABLE ALL", function() {
+		var enAllText:String = "ENABLE ALL";
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				enAllText = "ВКЛЮЧИТЬ ВСЕ";
+			default:
+				enAllText = "ENABLE ALL";
+		}
+		buttonEnableAll = new FlxButton(startX, 0, enAllText, function() {
 			for (i in modsList)
 			{
 				i[1] = true;
@@ -349,12 +390,24 @@ class ModsMenuState extends MusicBeatState
 	{
 		if (modsList[curSelected][1])
 		{
-			buttonToggle.label.text = 'ON';
+			switch(ClientPrefs.data.gameLanguage)
+			{
+				case 'Russian':
+					buttonToggle.label.text = 'ВКЛ';
+				default:
+					buttonToggle.label.text = 'ON';
+			}
 			buttonToggle.color = FlxColor.GREEN;
 		}
 		else
 		{
-			buttonToggle.label.text = 'OFF';
+			switch(ClientPrefs.data.gameLanguage)
+			{
+				case 'Russian':
+					buttonToggle.label.text = 'ВЫКЛ';
+				default:
+					buttonToggle.label.text = 'OFF';
+			}
 			buttonToggle.color = FlxColor.RED;
 		}
 	}

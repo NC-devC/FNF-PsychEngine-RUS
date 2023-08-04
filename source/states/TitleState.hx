@@ -271,8 +271,17 @@ class TitleState extends MusicBeatState
 			logoBl.shader = swagShader.shader;
 		}
 
+		var suffix:String = "";
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				suffix = "_ru";
+			default:
+				suffix = "";
+		}
+
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
-		titleText.frames = Paths.getSparrowAtlas('titleEnter');
+		titleText.frames = Paths.getSparrowAtlas('titleEnter'+suffix);
 		var animFrames:Array<FlxFrame> = [];
 		@:privateAccess {
 			titleText.animation.findByPrefix(animFrames, "ENTER IDLE");
