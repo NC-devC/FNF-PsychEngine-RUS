@@ -7,7 +7,7 @@ class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = [];
 	var optionsEn:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Language'];
-	var optionsRu:Array<String> = ['Цвета Нот', 'Управление', 'Регулировка Задержки и Комбо', 'Графика', 'Визуал и Интерфейс', 'Геймплей', 'Язык'];
+	var optionsRu:Array<String> = ['Цвetа hot', 'Упpавлehиe', 'Peгулиpoвkа задepжkи и komбo', 'Гpафиkа', 'Визуал и Иhtepфeйc', 'Гeйmплeй', 'Языk'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -15,20 +15,20 @@ class OptionsState extends MusicBeatState
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
-			case 'Note Colors' | 'Цвета Нот':
+			case 'Note Colors' | 'Цвetа hot':
 				openSubState(new options.NotesSubState());
-			case 'Controls' | 'Управление':
+			case 'Controls' | 'Упpавлehиe':
 				openSubState(new options.ControlsSubState());
-			case 'Graphics' | 'Графика':
+			case 'Graphics' | 'Гpафиkа':
 				openSubState(new options.GraphicsSettingsSubState());
-			case 'Visuals and UI' | 'Визуал и Интерфейс':
+			case 'Visuals and UI' | 'Визуал и Иhtepфeйc':
 				openSubState(new options.VisualsUISubState());
-			case 'Gameplay' | 'Геймплей':
+			case 'Gameplay' | 'Гeйmплeй':
 				openSubState(new options.GameplaySettingsSubState());
-			case 'Adjust Delay and Combo' | 'Регулировка Задержки и Комбо':
+			case 'Adjust Delay and Combo' | 'Peгулиpoвkа задepжkи и komбo':
 				MusicBeatState.switchState(new options.NoteOffsetState());
-			case 'Language' | 'Язык':
-				MusicBeatState.switchState(new options.LanguageOptionsSubState());
+			case 'Language' | 'Языk':
+				openSubState(new options.LanguageOptionsSubState());
 		}
 	}
 
@@ -42,8 +42,8 @@ class OptionsState extends MusicBeatState
 
 		switch(ClientPrefs.data.gameLanguage)
 		{
-			/*case 'Russian':
-				options = optionsRu;*/
+			case 'Russian':
+				options = optionsRu;
 			default:
 				options = optionsEn;
 		}
@@ -61,10 +61,19 @@ class OptionsState extends MusicBeatState
 
 		for (i in 0...options.length)
 		{
-			var optionText:Alphabet = new Alphabet(0, 0, options[i], true);
-			optionText.screenCenter();
-			optionText.y += (100 * (i - (options.length / 2))) + 50;
-			grpOptions.add(optionText);
+			switch(ClientPrefs.data.gameLanguage)
+			{
+				case 'Russian':
+					var optionText:Alphabet = new Alphabet(0, 0, options[i], true);
+					optionText.screenCenter();
+					optionText.y += (100 * (i - (options.length / 2))) + 50;
+					grpOptions.add(optionText);
+				case 'English':
+					var optionText:Alphabet = new Alphabet(0, 0, options[i], true);
+					optionText.screenCenter();
+					optionText.y += (100 * (i - (options.length / 2))) + 50;
+					grpOptions.add(optionText);
+			}
 		}
 
 		selectorLeft = new Alphabet(0, 0, '>', true);

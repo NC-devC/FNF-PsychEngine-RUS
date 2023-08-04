@@ -13,6 +13,8 @@ class Alphabet extends FlxSpriteGroup
 {
 	public var text(default, set):String;
 
+	public static var alphaType:String = "default";
+
 	public var bold:Bool = false;
 	public var letters:Array<AlphaCharacter> = [];
 
@@ -216,6 +218,25 @@ class Alphabet extends FlxSpriteGroup
 					}
 					consecutiveSpaces = 0;
 
+					var characterLower:String = character.toLowerCase();
+					var alphaTyp:Int = 0;
+
+					switch(characterLower)
+					{
+						case 'а' | "б" | "в" | "г" | "д" | "е" | "ё" | "ж" | "з" | 'и' | "й" | "к" | "л" | "м" | "о" | "п" | "р" | "н" | "с" | "т" | "у" | "ф" | "х" | "ц" | "ч" | "ш" | "щ" | "ъ" | "ы" | "ь" | "э" | "ю" | "я":
+							alphaTyp = 0;
+						default:
+							alphaTyp = 1;
+					}
+
+					if(alphaTyp == 0)
+					{
+						Alphabet.alphaType = "ru";
+					}
+					else
+					{
+						Alphabet.alphaType = "default";
+					}
 					var letter:AlphaCharacter = cast recycle(AlphaCharacter, true);
 					letter.scale.x = scaleX;
 					letter.scale.y = scaleY;
@@ -273,6 +294,7 @@ class AlphaCharacter extends FlxSprite
 	//public static var symbols:String = "|~#$%()*+-:;<=>@[]^_.,'!?";
 
 	public var image(default, set):String;
+	public var alphabetType:String = Alphabet.alphaType;
 
 	public static var allLetters:Map<String, Null<Letter>> = [
 		//alphabet
@@ -327,20 +349,20 @@ class AlphaCharacter extends FlxSprite
 		'|'  => null,
 		'~'  => {offsets: [0, 16], offsetsBold: [0, 20]},
 
+		//additional symbols
+		'¡'  => {anim: 'inverted exclamation', offsets: [0, -20], offsetsBold: [0, -20]},
+		'¿'  => {anim: 'inverted question', offsets: [0, -20], offsetsBold: [0, -20]},
+		'{'  => null,
+		'}'  => null,
+		'•'  => {anim: 'bullet', offsets: [0, 18], offsetsBold: [0, 20]},
+
 		//Russian alphabet(Русский алфавит)
 		'а' => null, 'б' => null, 'в' => null, 'г' => null, 'д' => null, 'е' => null,
 		'ё' => null, 'ж' => null, 'з' => null, 'и' => null, 'й' => null, 'к' => null,
 		'л' => null, 'м' => null, 'н' => null, 'о' => null, 'п' => null, 'р' => null,
 		'с' => null, 'т' => null, 'у' => null, 'ф' => null, 'х' => null, 'ц' => null,
 		'ч' => null, 'ш' => null, 'щ' => null, 'ъ' => null, 'ы' => null, 'ь' => null,
-		'э' => null, 'ю' => null, 'я' => null,
-
-		//additional symbols
-		'¡'  => {anim: 'inverted exclamation', offsets: [0, -20], offsetsBold: [0, -20]},
-		'¿'  => {anim: 'inverted question', offsets: [0, -20], offsetsBold: [0, -20]},
-		'{'  => null,
-		'}'  => null,
-		'•'  => {anim: 'bullet', offsets: [0, 18], offsetsBold: [0, 20]}
+		'э' => null, 'ю' => null, 'я' => null
 	];
 
 	var parent:Alphabet;
@@ -353,10 +375,10 @@ class AlphaCharacter extends FlxSprite
 	public function new()
 	{
 		super(x, y);
-		switch(character.toLowerCase())
+		switch(alphabetType)
 		{
-			/*case 'а' | "б" | "в" | "г" | "д" | "е" | "ё" | "ж" | "з" | 'и' | "й" | "к" | "л" | "м" | "о" | "п" | "р" | "н" | "с" | "т" | "у" | "ф" | "х" | "ц" | "ч" | "ш" | "щ" | "ъ" | "ы" | "ь" | "э" | "ю" | "я":
-				image = 'alphabet_rus';*/
+			case 'ru':
+				image = 'alphabet_rus';
 			default:
 				image = 'alphabet';
 		}
