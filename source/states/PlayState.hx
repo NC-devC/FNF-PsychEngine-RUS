@@ -1161,8 +1161,8 @@ class PlayState extends MusicBeatState
 		{
 			case 'Russian':
 				scoreTxt.text = 'Очки: ' + songScore
-				+ ' | Промахи: ' + songMisses
-				+ ' | Рейтинг: ' + str;
+				+ ' | Misses: ' + songMisses
+				+ ' | Rating: ' + str;
 			default:
 				scoreTxt.text = 'Score: ' + songScore
 				+ ' | Misses: ' + songMisses

@@ -8,7 +8,24 @@ class MenuItem extends FlxSprite
 	public function new(x:Float, y:Float, weekName:String = '')
 	{
 		super(x, y);
-		loadGraphic(Paths.image('storymenu/' + weekName));
+		var isDefault:Bool = false;
+		switch(weekName)
+		{
+			case 'tutorial' | 'week1' | 'week2' | 'week3' | 'week4' | 'week5' | 'week6' | 'week7':
+				isDefault = true;
+			default:
+				isDefault = false;
+		}
+		if(isDefault)
+		{
+			switch(ClientPrefs.data.gameLanguage)
+			{
+				case 'Russian':
+					loadGraphic(Paths.image('storymenu/ru/' + weekName));
+				default:
+					loadGraphic(Paths.image('storymenu/' + weekName));
+			}
+		}
 		antialiasing = ClientPrefs.data.antialiasing;
 		//trace('Test added: ' + WeekData.getWeekNumber(weekNum) + ' (' + weekNum + ')');
 	}
