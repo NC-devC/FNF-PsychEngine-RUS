@@ -5,11 +5,11 @@ class LanguageOptionsSubState extends BaseOptionsMenu
 	public function new()
 	{
 		title = 'Language Settings';
-		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
+		rpcTitle = 'Language Settings Menu'; //for Discord Rich Presence
 
 		var option:Option = new Option('Game language:',
 			"Your language?",
-			'language',
+			'gameLanguage',
 			'string',
 			['Russian', 'English']);
 		addOption(option);

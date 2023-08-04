@@ -40,10 +40,10 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-		switch(ClientPrefs.data.language)
+		switch(ClientPrefs.data.gameLanguage)
 		{
-			case 'Russian':
-				options = optionsRu;
+			/*case 'Russian':
+				options = optionsRu;*/
 			default:
 				options = optionsEn;
 		}

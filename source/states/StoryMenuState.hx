@@ -81,7 +81,7 @@ class StoryMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		switch(ClientPrefs.data.language)
+		switch(ClientPrefs.data.gameLanguage)
 		{
 			case "ru":
 				DiscordClient.changePresence("В меню истории", null);
@@ -196,7 +196,7 @@ class StoryMenuState extends MusicBeatState
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, FlxMath.bound(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
 
-		switch(ClientPrefs.data.language)
+		switch(ClientPrefs.data.gameLanguage)
 		{
 			case 'Russian':
 				scoreText.text = "ОЧКИ НЕДЕЛИ:" + lerpScore;

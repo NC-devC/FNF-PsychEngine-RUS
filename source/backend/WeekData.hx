@@ -99,7 +99,7 @@ class WeekData {
 
 		var sexList:Array<String>;
 		var directory:String = "weeks";
-		switch(ClientPrefs.data.language)
+		switch(ClientPrefs.data.gameLanguage)
 		{
 			case 'Russian':
 				sexList = CoolUtil.coolTextFile(Paths.getPreloadPath('weeksru/weekList.txt'));

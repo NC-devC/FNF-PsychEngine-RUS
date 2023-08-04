@@ -100,7 +100,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
-			switch(ClientPrefs.data.language)
+			switch(ClientPrefs.data.gameLanguage)
 			{
 				case 'Russian':
 					menuItem.frames = Paths.getSparrowAtlas('mainmenu/ru/menu_' + optionShit[i]);

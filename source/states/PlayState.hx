@@ -1157,7 +1157,7 @@ class PlayState extends MusicBeatState
 			str += ' ($percent%) - $ratingFC';
 		}
 
-		switch(ClientPrefs.data.language)
+		switch(ClientPrefs.data.gameLanguage)
 		{
 			case 'Russian':
 				scoreTxt.text = 'Очки: ' + songScore
@@ -3399,7 +3399,7 @@ class PlayState extends MusicBeatState
 							break;
 						}
 
-				switch(ClientPrefs.data.language)
+				switch(ClientPrefs.data.gameLanguage)
 				{
 					case 'Russian':
 						for (i in 0...ratingStuff.length-1)
