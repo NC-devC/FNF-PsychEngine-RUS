@@ -12,14 +12,29 @@ class OutdatedState extends MusicBeatState
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
 
-		warnText = new FlxText(0, 0, FlxG.width,
-			"Sup bro, looks like you're running an   \n
-			outdated version of Psych Engine (" + MainMenuState.psychEngineVersion + "),\n
-			please update to " + TitleState.updateVersion + "!\n
-			Press ESCAPE to proceed anyway.\n
-			\n
-			Thank you for using the Engine!",
-			32);
+		var warnContent:String = "";
+
+		switch(ClientPrefs.data.gameLanguage)
+		{
+			case 'Russian':
+				warnContent = "Привет братан, кажется ты играешь на   \n
+				старой версии мода (" + MainMenuState.psychEngineVersion + "),\n
+				ты можешь обновиться до " + TitleState.updateVersion + "!\n
+				Нажми ESCAPE, чтобы продолжить.\n
+				Нажми ENTER, чтобы обновиться.\n
+				\n
+				Спасибо за использование Psych Engine!";
+			default:
+				warnContent = "Sup bro, looks like you're running an   \n
+				outdated version of mod (" + MainMenuState.psychEngineVersion + "),\n
+				please update to " + TitleState.updateVersion + "!\n
+				Press ESCAPE to proceed anyway.\n
+				Press ENTER to download update.\n
+				\n
+				Thank you for using the Psych Engine!";
+		}
+
+		warnText = new FlxText(0, 0, FlxG.width, warnContent, 32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
@@ -30,7 +45,7 @@ class OutdatedState extends MusicBeatState
 		if(!leftState) {
 			if (controls.ACCEPT) {
 				leftState = true;
-				CoolUtil.browserLoad("https://github.com/ShadowMario/FNF-PsychEngine/releases");
+				CoolUtil.browserLoad("https://github.com/NC-devC/FNF-PsychEngine-RUS/releases");
 			}
 			else if(controls.BACK) {
 				leftState = true;
