@@ -6,8 +6,8 @@ import backend.StageData;
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = [];
-	var optionsEn:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Language'];
-	var optionsRu:Array<String> = ['Цвetа hot', 'Упpавлehиe', 'Peгулиpoвkа задepжkи и komбo', 'Гpафиkа', 'Визуал и Иhtepфeйc', 'Гeйmплeй', 'Языk'];
+	var optionsEn:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', "Language", "Other"];
+	var optionsRu:Array<String> = ['Цвetа hot', 'Упpавлehиe', 'Peгулиpoвkа задepжkи и komбo', 'Гpафиkа', 'Визуал и Иhtepфeйc', 'Гeйmплeй', "Языk", "Дpугиe"];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -29,6 +29,8 @@ class OptionsState extends MusicBeatState
 				MusicBeatState.switchState(new options.NoteOffsetState());
 			case 'Language' | 'Языk':
 				openSubState(new options.LanguageOptionsSubState());
+			case 'Other' | 'Дpугиe':
+				openSubState(new options.OtherOptionsSubState());
 		}
 	}
 

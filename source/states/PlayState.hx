@@ -407,17 +407,20 @@ class PlayState extends MusicBeatState
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 
-		switch (curStage)
+		if(ClientPrefs.data.disableStages == false)
 		{
-			case 'stage': new states.stages.StageWeek1(); //Week 1
-			case 'spooky': new states.stages.Spooky(); //Week 2
-			case 'philly': new states.stages.Philly(); //Week 3
-			case 'limo': new states.stages.Limo(); //Week 4
-			case 'mall': new states.stages.Mall(); //Week 5 - Cocoa, Eggnog
-			case 'mallEvil': new states.stages.MallEvil(); //Week 5 - Winter Horrorland
-			case 'school': new states.stages.School(); //Week 6 - Senpai, Roses
-			case 'schoolEvil': new states.stages.SchoolEvil(); //Week 6 - Thorns
-			case 'tank': new states.stages.Tank(); //Week 7 - Ugh, Guns, Stress
+			switch (curStage)
+			{
+				case 'stage': new states.stages.StageWeek1(); //Week 1
+				case 'spooky': new states.stages.Spooky(); //Week 2
+				case 'philly': new states.stages.Philly(); //Week 3
+				case 'limo': new states.stages.Limo(); //Week 4
+				case 'mall': new states.stages.Mall(); //Week 5 - Cocoa, Eggnog
+				case 'mallEvil': new states.stages.MallEvil(); //Week 5 - Winter Horrorland
+				case 'school': new states.stages.School(); //Week 6 - Senpai, Roses
+				case 'schoolEvil': new states.stages.SchoolEvil(); //Week 6 - Thorns
+				case 'tank': new states.stages.Tank(); //Week 7 - Ugh, Guns, Stress
+			}
 		}
 
 		if(isPixelStage) {
@@ -448,15 +451,18 @@ class PlayState extends MusicBeatState
 		#end
 
 		// STAGE SCRIPTS
-		#if LUA_ALLOWED
-		startLuasNamed('stages/' + curStage + '.lua');
-		#end
+		if(ClientPrefs.data.disableStages == false)
+		{
+			#if LUA_ALLOWED
+			startLuasNamed('stages/' + curStage + '.lua');
+			#end
 
-		#if HSCRIPT_ALLOWED
-		startHScriptsNamed('stages/' + curStage + '.hx');
-		#end
+			#if HSCRIPT_ALLOWED
+			startHScriptsNamed('stages/' + curStage + '.hx');
+			#end
+		}
 
-		if (!stageData.hide_girlfriend)
+		if (!stageData.hide_girlfriend && ClientPrefs.data.hideGF == false)
 		{
 			if(SONG.gfVersion == null || SONG.gfVersion.length < 1) SONG.gfVersion = 'gf'; //Fix for the Chart Editor
 			gf = new Character(0, 0, SONG.gfVersion);

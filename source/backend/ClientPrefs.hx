@@ -9,6 +9,8 @@ import states.TitleState;
 // Add a variable here and it will get automatically saved
 class SaveVariables {
 	public var gameLanguage:String = "English";
+	public var disableStages:Bool = false;
+	public var hideGF:Bool = false;
 	public var downScroll:Bool = false;
 	public var middleScroll:Bool = false;
 	public var opponentStrums:Bool = true;
