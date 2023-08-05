@@ -34,13 +34,14 @@ class Difficulty
 
 	inline public static function translateDefDiffToRu(diffID:Int)
 	{
-		return defaultDiffsRu[diffID][1];
+		var returnDifficulty:String = defaultDiffsRu[diffID][1];
+		return returnDifficulty;
 	}
 
 	inline public static function TranslateENToRU(diff:String)
 	{
 		var index:Int = 0;
-		var returnValue:String = "Нормально";
+		var returnValue:String = diff;
 
 		for (i in 0...defaultDiffsRu.length)
 		{

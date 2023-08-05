@@ -10,7 +10,12 @@ class TranslationUtil
 
     public static function ruDiffFormat(diff:String)
     {
-        var returnValue:String = "Hopmальho";
+        var returnValue:String = diff;
+
+		if(isDefaultDiff(diff) == false)
+		{
+			return returnValue;
+		}
 
 		for (i in 0...diffsRuFormatted.length)
 		{
@@ -22,4 +27,17 @@ class TranslationUtil
 
         return returnValue;
     }
+
+	public static function isDefaultDiff(diff:String)
+	{
+		var isDefault:Bool = false;
+		switch(diff.toLowerCase())
+		{
+			case 'easy' | 'normal' | 'hard' | 'легко' | 'нормально' | 'сложно':
+				isDefault = true;
+			default:
+				isDefault = false;
+		}
+		return isDefault;
+	}
 }

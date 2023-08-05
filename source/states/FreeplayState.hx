@@ -17,6 +17,8 @@ import substates.ResetScoreSubState;
 import sys.FileSystem;
 #end
 
+import backend.TranslationUtil;
+
 class FreeplayState extends MusicBeatState
 {
 	var songs:Array<SongMetadata> = [];
@@ -429,12 +431,19 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		lastDifficultyName = Difficulty.getString(curDifficulty);
-		switch(ClientPrefs.data.gameLanguage)
+		if(TranslationUtil.isDefaultDiff(lastDifficultyName))
 		{
-			case 'Russian':
-				lastFakeDiffName = Difficulty.translateDefDiffToRu(curDifficulty);
-			default:
-				lastFakeDiffName = lastDifficultyName;
+			switch(ClientPrefs.data.gameLanguage)
+			{
+				case 'Russian':
+					lastFakeDiffName = Difficulty.translateDefDiffToRu(curDifficulty);
+				default:
+					lastFakeDiffName = lastDifficultyName;
+			}
+		}
+		else
+		{
+			lastFakeDiffName = lastDifficultyName;
 		}
 		if (Difficulty.list.length > 1)
 			diffText.text = '< ' + lastFakeDiffName.toUpperCase() + ' >';

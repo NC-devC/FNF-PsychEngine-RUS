@@ -82,26 +82,15 @@ class PauseSubState extends MusicBeatSubstate
 		for (i in 0...Difficulty.list.length) {
 			var diffNoCorrect:String = Difficulty.getString(i);	
 			var diff:String = diffNoCorrect;
-			var isDefault:Bool = false;
-			switch(diffNoCorrect.toLowerCase())
+			var diffTranslate:String = diffNoCorrect;
+			switch(ClientPrefs.data.gameLanguage)
 			{
-				case 'easy' | 'normal' | 'hard' | 'легко' | 'нормально' | 'сложно':
-					isDefault = true;
+				case 'Russian':
+					diffTranslate = TranslationUtil.ruDiffFormat(Difficulty.TranslateENToRU(diffNoCorrect));
 				default:
-					isDefault = false;
+					diffTranslate = diffNoCorrect;
 			}
-			if(isDefault)
-			{
-				var diffTranslate:String = diffNoCorrect;
-				switch(ClientPrefs.data.gameLanguage)
-				{
-					case 'Russian':
-						diffTranslate = TranslationUtil.ruDiffFormat(Difficulty.TranslateENToRU(diffNoCorrect));
-					default:
-						diffTranslate = diffNoCorrect;
-				}
-				diff = diffTranslate;
-			}
+			diff = diffTranslate;
 			difficultyChoices.push(diff);
 		}
 		switch(ClientPrefs.data.gameLanguage)
