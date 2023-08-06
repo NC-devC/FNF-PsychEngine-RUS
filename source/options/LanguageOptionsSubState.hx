@@ -17,7 +17,7 @@ class LanguageOptionsSubState extends BaseOptionsMenu
 		switch(ClientPrefs.data.gameLanguage)
 		{
 			case 'Russian':
-				var option:Option = new Option('Game language:',
+				var option:Option = new Option('Game language(тест):',
 					"Твой язык?",
 					'gameLanguage',
 					'string',

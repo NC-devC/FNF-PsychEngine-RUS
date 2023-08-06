@@ -13,7 +13,7 @@ class Alphabet extends FlxSpriteGroup
 {
 	public var text(default, set):String;
 
-	public var alphaType:String = "default";
+	public static var alphaType:String = "default";
 
 	public var bold:Bool = false;
 	public var letters:Array<AlphaCharacter> = [];
@@ -231,11 +231,11 @@ class Alphabet extends FlxSpriteGroup
 
 					if(alphaTyp == 0)
 					{
-						alphaType = "ru";
+						Alphabet.alphaType = "ru";
 					}
 					else
 					{
-						alphaType = "default";
+						Alphabet.alphaType = "default";
 					}
 					var letter:AlphaCharacter = cast recycle(AlphaCharacter, true);
 					letter.scale.x = scaleX;
@@ -294,6 +294,7 @@ class AlphaCharacter extends FlxSprite
 	//public static var symbols:String = "|~#$%()*+-:;<=>@[]^_.,'!?";
 
 	public var image(default, set):String;
+	public var alphabetType:String = Alphabet.alphaType;
 
 	public static var allLetters:Map<String, Null<Letter>> = [
 		//alphabet
@@ -365,7 +366,6 @@ class AlphaCharacter extends FlxSprite
 	];
 
 	var parent:Alphabet;
-	public var alphabetType:String = "default";
 	public var alignOffset:Float = 0; //Don't change this
 	public var letterOffset:Array<Float> = [0, 0];
 
@@ -375,7 +375,6 @@ class AlphaCharacter extends FlxSprite
 	public function new()
 	{
 		super(x, y);
-		alphabetType = parent.alphaType;
 		switch(alphabetType)
 		{
 			case 'ru':
